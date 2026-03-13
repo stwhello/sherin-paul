@@ -10,16 +10,33 @@ body {
 body {
   background: #F3F3F3;
   font-family: "Lato", sans-serif;
+   overflow-x: hidden;
 }
 
-/* SMOOTH SCROLL WRAPPER */
 
 #smooth-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
 #smooth-content {
   will-change: transform;
+}
+
+/* HIDE SCROLLBAR */
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+body {
+  -ms-overflow-style: none;
 }
 
 /* PAGE CONTAINER */
