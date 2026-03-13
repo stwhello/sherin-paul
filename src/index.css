@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  height: 100%;
+}
+
+#smooth-wrapper {
+  overflow: hidden;
+}
+
+#smooth-content {
+  will-change: transform;
 }
