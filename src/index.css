@@ -10,7 +10,7 @@ body {
 body {
   background: #F3F3F3;
   font-family: "Lato", sans-serif;
-   overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 
@@ -39,15 +39,10 @@ body {
   -ms-overflow-style: none;
 }
 
-/* PAGE CONTAINER */
-
 .container-page {
-  padding-left: clamp(20px, 5vw, 120px);
-  padding-right: clamp(20px, 5vw, 120px);
+  padding-left: clamp(20px, 6vw, 120px);
+  padding-right: clamp(20px, 6vw, 120px);
 }
-
-/* TYPOGRAPHY */
-
 .heading-font {
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 0.02em;
