@@ -1,9 +1,18 @@
 @import "tailwindcss";
 
+/* GLOBAL BASE */
+
 html,
 body {
   height: 100%;
 }
+
+body {
+  background: #F3F3F3;
+  font-family: "Lato", sans-serif;
+}
+
+/* SMOOTH SCROLL WRAPPER */
 
 #smooth-wrapper {
   overflow: hidden;
@@ -11,4 +20,81 @@ body {
 
 #smooth-content {
   will-change: transform;
+}
+
+/* PAGE CONTAINER */
+
+.container-page {
+  padding-left: clamp(20px, 6vw, 120px);
+  padding-right: clamp(20px, 6vw, 120px);
+}
+
+/* TYPOGRAPHY */
+
+.heading-font {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.body-font {
+  font-family: "Lato", sans-serif;
+}
+
+/* BUTTON SYSTEM */
+
+.btn {
+  padding: 12px 40px;
+  border-radius: 10px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Primary filled button */
+
+.btn-primary {
+  background: #6C081F;
+  color: white;
+}
+
+/* Outline light */
+
+.btn-outline-light {
+  border: 1px solid #F2DDDC;
+  color: #F2DDDC;
+}
+
+/* Light background */
+
+.btn-light {
+  background: #F2DDDC;
+  color: #6C081F;
+}
+
+/* Soft pink */
+
+.btn-soft {
+  background: #F2AEBD;
+  color: #6C081F;
+}
+
+/* Outline dark */
+
+.btn-outline-dark {
+  border: 1px solid #6C081F;
+  color: #6C081F;
+}
+
+/* HOVER STATES */
+
+.btn-primary:hover {
+  background: #520615;
+}
+
+.btn-light:hover {
+  background: #e8c9c7;
+}
+
+.btn-soft:hover {
+  background: #e59eae;
 }
