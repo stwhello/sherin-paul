@@ -42,8 +42,8 @@ body {
 /* PAGE CONTAINER */
 
 .container-page {
-  padding-left: clamp(20px, 6vw, 120px);
-  padding-right: clamp(20px, 6vw, 120px);
+  padding-left: clamp(20px, 5vw, 120px);
+  padding-right: clamp(20px, 5vw, 120px);
 }
 
 /* TYPOGRAPHY */
