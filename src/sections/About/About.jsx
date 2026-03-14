@@ -41,7 +41,6 @@ const About = () => {
 
   return (
     <section ref={container} className='container-page mt-40'>
-
       {/* ────────────── DESKTOP LAYOUT (lg+) ────────────── */}
       <div
         className='hidden lg:flex relative bg-[#F2AEBD] rounded-t-[50px] items-center overflow-visible pb-8'
@@ -133,7 +132,10 @@ const About = () => {
             </h2>
             <p
               className='about-text body-font text-[#6C081F]'
-              style={{ fontSize: "clamp(14px, 1.1vw, 18px)", lineHeight: "1.7" }}
+              style={{
+                fontSize: "clamp(14px, 1.1vw, 18px)",
+                lineHeight: "1.7",
+              }}
             >
               I'm a <strong>Full Stack Developer</strong> based in Pune with a
               <strong> Master's degree in Computer Science</strong>. I build
@@ -146,38 +148,48 @@ const About = () => {
               <strong> Senior Developer</strong> for consistently delivering
               <strong> production-grade solutions</strong> and taking ownership
               of complex projects. I've worked on platforms for organizations
-              such as <strong>MAAC</strong> and <strong>Arena Animation</strong>,
-              building responsive interfaces, reliable backend systems, and
+              such as <strong>MAAC</strong> and <strong>Arena Animation</strong>
+              , building responsive interfaces, reliable backend systems, and
               <strong> high-performance digital products</strong>.
             </p>
           </div>
         </div>
       </div>
-
       {/* ────────────── MOBILE LAYOUT (below lg) ────────────── */}
-      <div className='lg:hidden relative bg-[#F2AEBD] rounded-t-[40px] overflow-visible'>
-
-        {/* IMAGE + TAGS block — image overflows upward */}
-        <div className='relative mx-auto' style={{ width: "75vw", maxWidth: "320px" }}>
-
+      <div
+        className='lg:hidden relative bg-[#F2AEBD] rounded-t-[40px] mt-16'
+        style={{ overflow: "hidden" }}
+      >
+        {/* IMAGE + TAGS block */}
+        <div className='relative w-full'>
           <img
             src={aboutImg}
             alt='Sherin'
-            className='about-image relative z-10 w-full'
-            style={{ marginTop: "-15vw" }}
+            className='about-image relative z-10 block'
+            style={{
+              width: "85vw",
+              maxWidth: "360px",
+              marginTop: "-20vw",
+              marginLeft: "0",
+            }}
           />
 
           {/* ARROW */}
           <img
             src={arrow}
             className='about-arrow absolute z-20'
-            style={{ right: "-8%", top: "22%", width: "22vw", maxWidth: "90px" }}
+            style={{ right: "4%", top: "8%", width: "16vw", maxWidth: "65px" }}
           />
 
           {/* Full Stack */}
           <div
             className='about-tag absolute z-20 bg-[#6C0820] text-white rounded-full whitespace-nowrap font-medium'
-            style={{ right: "-10%", top: "35%", fontSize: "clamp(9px,2.8vw,12px)", padding: "6px 16px" }}
+            style={{
+              right: "3%",
+              top: "65%",
+              fontSize: "clamp(10px,3vw,13px)",
+              padding: "6px 16px",
+            }}
           >
             Full Stack Developer
           </div>
@@ -185,7 +197,12 @@ const About = () => {
           {/* Wordpress */}
           <div
             className='about-tag absolute z-20 bg-[#F2DDDC] text-[#6C0820] rounded-full whitespace-nowrap font-medium'
-            style={{ left: "-5%", top: "52%", fontSize: "clamp(9px,2.8vw,12px)", padding: "6px 16px" }}
+            style={{
+              left: "3%",
+              top: "68%",
+              fontSize: "clamp(10px,3vw,13px)",
+              padding: "6px 16px",
+            }}
           >
             Wordpress Developer
           </div>
@@ -193,7 +210,12 @@ const About = () => {
           {/* Shopify */}
           <div
             className='about-tag absolute z-20 bg-[#F2DDDC] text-[#6C0820] rounded-full whitespace-nowrap font-medium'
-            style={{ left: "0%", bottom: "18%", fontSize: "clamp(9px,2.8vw,12px)", padding: "6px 16px" }}
+            style={{
+              left: "3%",
+              bottom: "12%",
+              fontSize: "clamp(10px,3vw,13px)",
+              padding: "6px 16px",
+            }}
           >
             Shopify Developer
           </div>
@@ -201,23 +223,28 @@ const About = () => {
           {/* Senior */}
           <div
             className='about-tag absolute z-20 bg-[#6C0820] text-white rounded-full whitespace-nowrap font-medium'
-            style={{ right: "-8%", bottom: "20%", fontSize: "clamp(9px,2.8vw,12px)", padding: "6px 16px" }}
+            style={{
+              right: "3%",
+              bottom: "14%",
+              fontSize: "clamp(10px,3vw,13px)",
+              padding: "6px 16px",
+            }}
           >
             Senior Developer
           </div>
         </div>
 
         {/* TEXT BLOCK */}
-        <div className='px-6 pb-10 pt-4 text-center'>
+        <div className='w-full px-5 pb-12 pt-6 text-center'>
           <h2
             className='about-heading heading-font text-[#6C081F]'
-            style={{ fontSize: "clamp(36px,10vw,56px)" }}
+            style={{ fontSize: "clamp(38px, 10vw, 56px)" }}
           >
             ABOUT ME
           </h2>
           <p
-            className='about-text body-font text-[#6C081F] mt-3'
-            style={{ fontSize: "clamp(13px,3.8vw,16px)", lineHeight: "1.7" }}
+            className='about-text body-font text-[#6C081F] mt-4 w-full'
+            style={{ fontSize: "clamp(14px, 4vw, 16px)", lineHeight: "1.8" }}
           >
             I'm a <strong>Full Stack Developer</strong> based in Pune with a
             <strong> Master's degree in Computer Science</strong>. I build
@@ -233,7 +260,6 @@ const About = () => {
           </p>
         </div>
       </div>
-
     </section>
   );
 };
