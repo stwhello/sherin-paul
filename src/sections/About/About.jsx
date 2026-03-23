@@ -155,12 +155,11 @@ const About = () => {
           </div>
         </div>
       </div>
-      {/* ────────────── MOBILE LAYOUT (below lg) ────────────── */}
       <div
         className='lg:hidden relative bg-[#F2AEBD] rounded-t-[40px] mt-16'
         style={{ overflow: "hidden" }}
       >
-        {/* IMAGE + TAGS block */}
+  
         <div className='relative w-full'>
           <img
             src={aboutImg}
