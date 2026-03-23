@@ -219,7 +219,6 @@ const About = () => {
             Shopify Developer
           </div>
 
-          {/* Senior */}
           <div
             className='about-tag absolute z-20 bg-[#6C0820] text-white rounded-full whitespace-nowrap font-medium'
             style={{
@@ -233,7 +232,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* TEXT BLOCK */}
+     
         <div className='w-full px-5 pb-12 pt-6 text-center'>
           <h2
             className='about-heading heading-font text-[#6C081F]'
