@@ -41,12 +41,12 @@ const About = () => {
 
   return (
     <section ref={container} className='container-page mt-40'>
-      {/* ────────────── DESKTOP LAYOUT (lg+) ────────────── */}
+   
       <div
         className='hidden lg:flex relative bg-[#F2AEBD] rounded-t-[50px] items-center overflow-visible pb-8'
         style={{ minHeight: "clamp(340px, 30vw, 540px)" }}
       >
-        {/* IMAGE */}
+       
         <div
           className='absolute left-0 bottom-0'
           style={{ width: "clamp(260px, 30vw, 520px)" }}
@@ -54,7 +54,7 @@ const About = () => {
           <img src={aboutImg} alt='Sherin' className='about-image w-full' />
         </div>
 
-        {/* TAGS */}
+       
         <div
           className='about-tag absolute bg-[#F2AEBD] text-[#6C0820] rounded-full whitespace-nowrap'
           style={{
@@ -104,7 +104,7 @@ const About = () => {
           Full Stack Developer
         </div>
 
-        {/* ARROW */}
+      
         <img
           src={arrow}
           className='about-arrow absolute'
@@ -115,7 +115,7 @@ const About = () => {
           }}
         />
 
-        {/* RIGHT CONTENT */}
+      
         <div
           className='w-full'
           style={{
@@ -173,14 +173,14 @@ const About = () => {
             }}
           />
 
-          {/* ARROW */}
+         
           <img
             src={arrow}
             className='about-arrow absolute z-20'
             style={{ right: "4%", top: "8%", width: "16vw", maxWidth: "65px" }}
           />
 
-          {/* Full Stack */}
+   
           <div
             className='about-tag absolute z-20 bg-[#6C0820] text-white rounded-full whitespace-nowrap font-medium'
             style={{
@@ -193,7 +193,7 @@ const About = () => {
             Full Stack Developer
           </div>
 
-          {/* Wordpress */}
+      
           <div
             className='about-tag absolute z-20 bg-[#F2DDDC] text-[#6C0820] rounded-full whitespace-nowrap font-medium'
             style={{
@@ -206,7 +206,7 @@ const About = () => {
             Wordpress Developer
           </div>
 
-          {/* Shopify */}
+     
           <div
             className='about-tag absolute z-20 bg-[#F2DDDC] text-[#6C0820] rounded-full whitespace-nowrap font-medium'
             style={{
