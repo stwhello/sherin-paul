@@ -55,7 +55,7 @@ const AccordionItem = ({ item, isOpen, onToggle }) => {
       gsap.fromTo(
         tagsWrap,
         { height: 0, opacity: 0 },
-        { height: "auto", opacity: 1, duration: 0.45, ease: "power3.out" }
+        { height: "auto", opacity: 1, duration: 0.45, ease: "power3.out" },
       );
       gsap.fromTo(
         tags.children,
@@ -67,7 +67,7 @@ const AccordionItem = ({ item, isOpen, onToggle }) => {
           stagger: 0.07,
           ease: "power2.out",
           delay: 0.15,
-        }
+        },
       );
     } else {
       gsap.to(tagsWrap, {
@@ -82,7 +82,7 @@ const AccordionItem = ({ item, isOpen, onToggle }) => {
 
   return (
     <div
-      className="accordion-item cursor-pointer"
+      className='accordion-item cursor-pointer'
       style={{
         background: "#F2AEBD",
         border: "1px solid #F2AEBD",
@@ -91,22 +91,22 @@ const AccordionItem = ({ item, isOpen, onToggle }) => {
       }}
       onClick={onToggle}
     >
-      {/* Header — reduced bottom padding to close gap with desc */}
       <div
-        className="flex items-center justify-between"
+        className='flex items-center justify-between'
         style={{
-          padding: "clamp(12px, 1vw, 18px) clamp(16px, 2vw, 36px) clamp(4px, 0.3vw, 6px)",
+          padding:
+            "clamp(12px, 1vw, 18px) clamp(16px, 2vw, 36px) clamp(4px, 0.3vw, 6px)",
         }}
       >
         <h3
-          className="heading-font text-[#6C081F] leading-normal"
+          className='heading-font text-[#6C081F] leading-normal'
           style={{ fontSize: "clamp(14px, 1.5vw, 28px)" }}
         >
           {item.title}
         </h3>
         <img
           src={arrow}
-          alt="toggle"
+          alt='toggle'
           style={{
             width: "clamp(18px, 1.6vw, 28px)",
             height: "clamp(18px, 1.6vw, 28px)",
@@ -117,14 +117,13 @@ const AccordionItem = ({ item, isOpen, onToggle }) => {
         />
       </div>
 
-      {/* Desc + Tags — increased bottom padding */}
       <div
         style={{
           padding: "0 clamp(16px, 2vw, 36px) clamp(20px, 1.8vw, 32px)",
         }}
       >
         <p
-          className="body-font"
+          className='body-font'
           style={{
             color: "#111111",
             fontSize: "clamp(12px, 0.9vw, 16px)",
@@ -134,11 +133,16 @@ const AccordionItem = ({ item, isOpen, onToggle }) => {
           {item.desc}
         </p>
 
-        {/* Tags — animated by useEffect */}
-        <div ref={tagsWrapRef} style={{ overflow: "hidden" }}>
+        <div
+          ref={tagsWrapRef}
+          style={{
+            overflow: "hidden",
+            paddingBottom: "6px", 
+          }}
+        >
           <div
             ref={tagsRef}
-            className="flex flex-wrap"
+            className='flex flex-wrap'
             style={{
               gap: "clamp(5px, 0.5vw, 8px)",
               marginTop: "clamp(10px, 0.8vw, 14px)",
@@ -147,7 +151,7 @@ const AccordionItem = ({ item, isOpen, onToggle }) => {
             {item.tags.map((tag) => (
               <span
                 key={tag}
-                className="body-font text-[#6C081F]"
+                className='body-font text-[#6C081F]'
                 style={{
                   border: "1px solid #6C0820",
                   borderRadius: "25px",
@@ -194,7 +198,7 @@ const WhatIDo = () => {
       .from(
         ".whatiido-desc",
         { x: -40, opacity: 0, duration: 0.6, ease: "power3.out" },
-        "-=0.4"
+        "-=0.4",
       )
       .from(
         ".accordion-item",
@@ -205,30 +209,30 @@ const WhatIDo = () => {
           stagger: 0.12,
           ease: "power3.out",
         },
-        "-=0.5"
+        "-=0.5",
       );
   });
 
   return (
     <section
       ref={container}
-      className="container-page"
+      className='container-page'
       style={{
         paddingTop: "clamp(50px, 7vw, 140px)",
         paddingBottom: "clamp(50px, 7vw, 140px)",
       }}
     >
       <div
-        className="flex flex-col lg:flex-row lg:items-start"
+        className='flex flex-col lg:flex-row lg:items-start'
         style={{ gap: "clamp(30px, 4vw, 80px)" }}
       >
         {/* Left */}
         <div
-          className="lg:w-[36%] lg:sticky"
+          className='lg:w-[36%] lg:sticky'
           style={{ top: "clamp(60px, 6vw, 120px)" }}
         >
           <h2
-            className="whatiido-heading heading-font text-[#6C081F]"
+            className='whatiido-heading heading-font text-[#6C081F]'
             style={{
               fontSize: "clamp(36px, 5.5vw, 96px)",
               lineHeight: "clamp(42px, 6.5vw, 120px)",
@@ -238,7 +242,7 @@ const WhatIDo = () => {
             WHAT I DO
           </h2>
           <p
-            className="whatiido-desc body-font text-[#1E1E1E]"
+            className='whatiido-desc body-font text-[#1E1E1E]'
             style={{
               fontSize: "clamp(13px, 1.2vw, 22px)",
               fontWeight: 400,
@@ -253,7 +257,7 @@ const WhatIDo = () => {
         </div>
 
         {/* Right */}
-        <div className="flex-1">
+        <div className='flex-1'>
           {services.map((item, i) => (
             <AccordionItem
               key={item.title}
