@@ -67,7 +67,6 @@ const projects = [
 
 const ClientWork = () => {
   const sectionRef = useRef(null);
-  const trackRef = useRef(null);
   const headingRef = useRef(null);
   const descRef = useRef(null);
 
@@ -102,31 +101,59 @@ const ClientWork = () => {
       <style>{`
         .cw-track {
           display: flex;
-          gap: clamp(12px, 1.4vw, 20px);
+          gap: clamp(10px, 1vw, 16px);
           overflow-x: auto;
           overflow-y: visible;
           scroll-snap-type: x mandatory;
           -webkit-overflow-scrolling: touch;
           scrollbar-width: none;
           -ms-overflow-style: none;
-          /* same as container-page */
           padding-left: clamp(20px, 6vw, 120px);
-          padding-right: clamp(20px, 6vw, 120px);
+          /* right padding = container-page pad MINUS half a card to show 3.5 */
+          padding-right: clamp(10px, 3vw, 60px);
           padding-bottom: clamp(10px, 1vw, 16px);
         }
         .cw-track::-webkit-scrollbar {
           display: none;
         }
+        /*
+          3.5 cards visible:
+          available = 100vw - left_pad - right_pad
+          card_width = (available - 3 * gap) / 3.5
+          Using CSS custom props for clarity.
+          At 1920: (1920 - 120 - 60 - 3*16) / 3.5 ≈ 480px
+          At 1536: (1536 - 92 - 46 - 3*13) / 3.5 ≈ 382px  ✓ feels right
+        */
         .cw-card {
-          flex: 0 0 calc((100vw - clamp(40px, 12vw, 240px) - clamp(24px, 2.8vw, 40px)) / 3);
-          min-width: 260px;
-          max-width: 544px;
+          flex: 0 0 calc(
+            (100vw - clamp(20px,6vw,120px) - clamp(10px,3vw,60px) - 3 * clamp(10px,1vw,16px)) / 3.5
+          );
+          min-width: 220px;
+          max-width: 490px;
           scroll-snap-align: start;
           border-radius: 10px;
           background: #FDD0DA;
           overflow: hidden;
           display: flex;
           flex-direction: column;
+        }
+        /* Image zoom on hover — only the img scales, container clips it */
+        .cw-img-wrap {
+          overflow: hidden;
+          width: 100%;
+          border-radius: 6px 6px 0 0;
+        }
+        .cw-img-wrap img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.5s ease;
+          pointer-events: none;
+          user-select: none;
+        }
+        .cw-card:hover .cw-img-wrap img {
+          transform: scale(1.06);
         }
         .cw-btn {
           display: inline-block;
@@ -136,8 +163,9 @@ const ClientWork = () => {
           text-decoration: none;
           font-weight: 500;
           transition: background 0.25s ease, color 0.25s ease;
-          padding: clamp(8px, 0.9vw, 14px) clamp(14px, 1.6vw, 28px);
-          font-size: clamp(11px, 0.85vw, 15px);
+          padding: clamp(7px, 0.75vw, 12px) clamp(14px, 1.5vw, 26px);
+          font-size: clamp(11px, 0.8vw, 14px);
+          white-space: nowrap;
         }
         .cw-btn:hover {
           background: #fff;
@@ -152,15 +180,15 @@ const ClientWork = () => {
           paddingBottom: "clamp(50px, 7vw, 140px)",
         }}
       >
-        {/* Header — uses container-page for side padding */}
+        {/* ── Header ── */}
         <div
           className="container-page text-center"
-          style={{ marginBottom: "clamp(28px, 3.5vw, 56px)" }}
+          style={{ marginBottom: "clamp(24px, 3vw, 52px)" }}
         >
           <h1
             ref={headingRef}
             className="heading-font text-[#6C081F]"
-            style={{ fontSize: "clamp(40px, 6vw, 96px)", fontWeight: 400, lineHeight: 1.1 }}
+            style={{ fontSize: "clamp(38px, 5.5vw, 96px)", fontWeight: 400, lineHeight: 1.1 }}
           >
             CLIENT WORK
           </h1>
@@ -168,33 +196,28 @@ const ClientWork = () => {
             ref={descRef}
             className="body-font text-[#1E1E1E]"
             style={{
-              fontSize: "clamp(14px, 1.4vw, 24px)",
+              fontSize: "clamp(13px, 1.2vw, 22px)",
               fontWeight: 400,
-              marginTop: "clamp(8px, 1vw, 18px)",
+              marginTop: "clamp(8px, 1vw, 16px)",
             }}
           >
             Web platforms built and optimized for growing brands and businesses.
           </p>
         </div>
 
-        {/* Scroll track — swipe/scroll horizontally */}
-        <div ref={trackRef} className="cw-track">
+        {/* ── Scroll track ── */}
+        <div className="cw-track">
           {projects.map((project, i) => (
             <div key={i} className="cw-card">
 
-              {/* Image — floats inside pink bg */}
+              {/* Pink padding area around image */}
               <div style={{
                 background: "#FDD0DA",
-                padding: "clamp(10px, 1.2vw, 20px) clamp(10px, 1.2vw, 20px) 0",
+                padding: "clamp(8px, 1vw, 16px) clamp(8px, 1vw, 16px) 0",
                 flexShrink: 0,
               }}>
-                <div style={{ width: "100%", aspectRatio: "43 / 33", overflow: "hidden", borderRadius: "6px 6px 0 0" }}>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    draggable="false"
-                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", pointerEvents: "none", userSelect: "none" }}
-                  />
+                <div className="cw-img-wrap" style={{ aspectRatio: "43 / 33" }}>
+                  <img src={project.image} alt={project.title} draggable="false" />
                 </div>
               </div>
 
@@ -202,21 +225,27 @@ const ClientWork = () => {
               <div style={{
                 background: "#6C0820",
                 borderRadius: "0 0 10px 10px",
-                padding: "clamp(14px, 1.5vw, 26px) clamp(14px, 1.5vw, 26px) clamp(16px, 1.8vw, 30px)",
+                padding: "clamp(12px, 1.3vw, 22px) clamp(12px, 1.3vw, 22px) clamp(14px, 1.5vw, 26px)",
                 display: "flex",
                 flexDirection: "column",
-                gap: "clamp(8px, 0.8vw, 14px)",
+                gap: "clamp(6px, 0.6vw, 10px)",
                 flex: 1,
               }}>
                 <h3
                   className="heading-font text-white"
-                  style={{ fontSize: "clamp(16px, 1.8vw, 32px)", fontWeight: 400, lineHeight: 1.1 }}
+                  style={{ fontSize: "clamp(15px, 1.5vw, 28px)", fontWeight: 400, lineHeight: 1.1 }}
                 >
                   {project.title.toUpperCase()}
                 </h3>
                 <p
                   className="body-font text-white"
-                  style={{ fontSize: "clamp(11px, 0.85vw, 15px)", fontWeight: 400, lineHeight: 1.65, opacity: 0.88, flex: 1 }}
+                  style={{
+                    fontSize: "clamp(10px, 0.8vw, 14px)",
+                    fontWeight: 400,
+                    lineHeight: 1.65,
+                    opacity: 0.88,
+                    flex: 1,
+                  }}
                 >
                   {project.desc}
                 </p>
