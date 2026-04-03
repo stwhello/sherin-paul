@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* GLOBAL BASE */
 
 html,
 body {
@@ -10,34 +9,14 @@ body {
 body {
   background: #F3F3F3;
   font-family: "Lato", sans-serif;
-  /* overflow-x: hidden; */
 }
 
-
-#smooth-wrapper {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-#smooth-content {
-  will-change: transform;
-}
-
-/* HIDE SCROLLBAR */
 
 ::-webkit-scrollbar {
   display: none;
 }
 
-html {
-  scrollbar-width: none;
-}
 
-body {
-  -ms-overflow-style: none;
-}
 
 .container-page {
   padding-left: clamp(20px, 6vw, 120px);
