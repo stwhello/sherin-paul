@@ -106,24 +106,13 @@ const ClientWork = () => {
           overflow-y: visible;
           scroll-snap-type: x mandatory;
           -webkit-overflow-scrolling: touch;
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          padding-left: clamp(20px, 6vw, 120px);
-          /* right padding = container-page pad MINUS half a card to show 3.5 */
-          padding-right: clamp(10px, 3vw, 60px);
+         
+           margin-left: clamp(20px, 6vw, 120px);
+          margin-right: clamp(20px, 6vw, 120px);
           padding-bottom: clamp(10px, 1vw, 16px);
         }
-        .cw-track::-webkit-scrollbar {
-          display: none;
-        }
-        /*
-          3.5 cards visible:
-          available = 100vw - left_pad - right_pad
-          card_width = (available - 3 * gap) / 3.5
-          Using CSS custom props for clarity.
-          At 1920: (1920 - 120 - 60 - 3*16) / 3.5 ≈ 480px
-          At 1536: (1536 - 92 - 46 - 3*13) / 3.5 ≈ 382px  ✓ feels right
-        */
+  
+       
         .cw-card {
           flex: 0 0 calc(
             (100vw - clamp(20px,6vw,120px) - clamp(10px,3vw,60px) - 3 * clamp(10px,1vw,16px)) / 3.5
@@ -137,7 +126,6 @@ const ClientWork = () => {
           display: flex;
           flex-direction: column;
         }
-        /* Image zoom on hover — only the img scales, container clips it */
         .cw-img-wrap {
           overflow: hidden;
           width: 100%;
