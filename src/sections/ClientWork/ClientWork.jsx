@@ -106,13 +106,10 @@ const ClientWork = () => {
           overflow-y: visible;
           scroll-snap-type: x mandatory;
           -webkit-overflow-scrolling: touch;
-         
            margin-left: clamp(20px, 6vw, 120px);
           margin-right: clamp(20px, 6vw, 120px);
           padding-bottom: clamp(10px, 1vw, 16px);
         }
-  
-       
         .cw-card {
           flex: 0 0 calc(
             (100vw - clamp(20px,6vw,120px) - clamp(10px,3vw,60px) - 3 * clamp(10px,1vw,16px)) / 3.5
@@ -168,7 +165,6 @@ const ClientWork = () => {
           paddingBottom: "clamp(50px, 7vw, 140px)",
         }}
       >
-        {/* ── Header ── */}
         <div
           className="container-page text-center"
           style={{ marginBottom: "clamp(24px, 3vw, 52px)" }}
@@ -193,12 +189,10 @@ const ClientWork = () => {
           </p>
         </div>
 
-        {/* ── Scroll track ── */}
         <div className="cw-track">
           {projects.map((project, i) => (
             <div key={i} className="cw-card">
 
-              {/* Pink padding area around image */}
               <div style={{
                 background: "#FDD0DA",
                 padding: "clamp(8px, 1vw, 16px) clamp(8px, 1vw, 16px) 0",
@@ -209,7 +203,6 @@ const ClientWork = () => {
                 </div>
               </div>
 
-              {/* Content */}
               <div style={{
                 background: "#6C0820",
                 borderRadius: "0 0 10px 10px",
