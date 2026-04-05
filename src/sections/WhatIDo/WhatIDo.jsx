@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
 import arrow from "../../assets/acc-arrow.png";
+import ComputerIllustration from "../../components/ComputerIllustration";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -226,7 +227,6 @@ const WhatIDo = () => {
         className='flex flex-col lg:flex-row lg:items-start'
         style={{ gap: "clamp(30px, 4vw, 80px)" }}
       >
-        {/* Left */}
         <div
           className='lg:w-[36%] lg:sticky'
           style={{ top: "clamp(60px, 6vw, 120px)" }}
@@ -254,6 +254,7 @@ const WhatIDo = () => {
             Designing and developing high-performance digital experiences that
             help brands grow online.
           </p>
+          <ComputerIllustration scrollTriggerRef={container} />
         </div>
 
         {/* Right */}
