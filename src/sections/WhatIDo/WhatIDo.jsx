@@ -258,7 +258,6 @@ const WhatIDo = () => {
           <ComputerIllustration scrollTriggerRef={container} />
         </div>
 
-        {/* Right */}
         <div className='flex-1'>
           {services.map((item, i) => (
             <AccordionItem

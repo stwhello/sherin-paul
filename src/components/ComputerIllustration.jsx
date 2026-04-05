@@ -89,7 +89,6 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
           fill="#6C081F"
         />
 
-        {/* ── MONITOR INNER SCREEN BEZEL (from right) ── */}
         <rect
           className="from-right"
           x="44"
@@ -100,7 +99,6 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
           fill="#F2DDDC"
         />
 
-        {/* ── SCREEN SURFACE (from left) ── */}
         <rect
           className="from-left"
           x="54"
@@ -111,7 +109,6 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
           fill="#F3F3F3"
         />
 
-        {/* ── CODE LINES on screen (from right, staggered) ── */}
         <rect className="from-right" x="70" y="62" width="80" height="7" rx="3.5" fill="#6C081F" opacity="0.8" />
         <rect className="from-right" x="70" y="76" width="120" height="7" rx="3.5" fill="#F2AEBD" />
         <rect className="from-right" x="70" y="90" width="60" height="7" rx="3.5" fill="#6C081F" opacity="0.5" />
@@ -120,10 +117,8 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
         <rect className="from-right" x="70" y="132" width="110" height="7" rx="3.5" fill="#F2AEBD" opacity="0.9" />
         <rect className="from-right" x="70" y="146" width="55" height="7" rx="3.5" fill="#6C081F" opacity="0.4" />
 
-        {/* ── CURSOR BLINK DOT (from center) ── */}
         <rect className="from-center" x="158" y="146" width="8" height="9" rx="2" fill="#6C081F" />
 
-        {/* ── MONITOR STAND NECK (from left) ── */}
         <rect
           className="from-left"
           x="155"
@@ -134,7 +129,6 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
           fill="#6C081F"
         />
 
-        {/* ── MONITOR STAND BASE (from right) ── */}
         <rect
           className="from-right"
           x="108"
@@ -145,7 +139,6 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
           fill="#6C081F"
         />
 
-        {/* ── KEYBOARD BODY (from left) ── */}
         <rect
           className="from-left"
           x="60"
@@ -156,7 +149,6 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
           fill="#6C081F"
         />
 
-        {/* ── KEYBOARD KEY ROWS (from right) ── */}
         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
           <rect
             key={`key-top-${i}`}
@@ -184,7 +176,6 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
           />
         ))}
 
-        {/* ── DECORATIVE CIRCLE top-left (from left) ── */}
         <circle
           className="from-left"
           cx="14"
@@ -194,7 +185,6 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
           opacity="0.7"
         />
 
-        {/* ── DECORATIVE CIRCLE top-right large (from right) ── */}
         <circle
           className="from-right"
           cx="326"
@@ -206,7 +196,6 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
           opacity="0.5"
         />
 
-        {/* ── DECORATIVE CIRCLE bottom-right (from right) ── */}
         <circle
           className="from-right"
           cx="318"
@@ -216,7 +205,6 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
           opacity="0.8"
         />
 
-        {/* ── DECORATIVE SMALL SQUARE top-left (from left) ── */}
         <rect
           className="from-left"
           x="4"
@@ -228,7 +216,6 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
           opacity="0.3"
         />
 
-        {/* ── DECORATIVE SMALL SQUARE bottom-left (from left) ── */}
         <rect
           className="from-left"
           x="10"
@@ -242,7 +229,6 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
           opacity="0.4"
         />
 
-        {/* ── POWER DOT on monitor bezel (from center) ── */}
         <circle
           className="from-center"
           cx="170"
@@ -251,7 +237,6 @@ const ComputerIllustration = ({ scrollTriggerRef }) => {
           fill="#F2AEBD"
         />
 
-        {/* ── CAMERA DOT top center (from center) ── */}
         <circle
           className="from-center"
           cx="170"

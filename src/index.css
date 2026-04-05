@@ -31,7 +31,6 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-/* BUTTON SYSTEM */
 
 .btn {
   padding: 12px 40px;
@@ -41,42 +40,36 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Primary filled button */
 
 .btn-primary {
   background: #6C081F;
   color: white;
 }
 
-/* Outline light */
 
 .btn-outline-light {
   border: 1px solid #F2DDDC;
   color: #F2DDDC;
 }
 
-/* Light background */
 
 .btn-light {
   background: #F2DDDC;
   color: #6C081F;
 }
 
-/* Soft pink */
 
 .btn-soft {
   background: #F2AEBD;
   color: #6C081F;
 }
 
-/* Outline dark */
 
 .btn-outline-dark {
   border: 1px solid #6C081F;
   color: #6C081F;
 }
 
-/* HOVER STATES */
 
 .btn-primary:hover {
   background: #520615;
