@@ -237,7 +237,7 @@ const ClientWork = () => {
                 <p
                   className='body-font text-white'
                   style={{
-                    fontSize: "clamp(14px, 1vw, 16px)",
+                    fontSize: "clamp(13px, 0.9vw, 15px)",
                     fontWeight: 400,
                     lineHeight: 1.65,
                     opacity: 0.88,
@@ -246,7 +246,7 @@ const ClientWork = () => {
                 >
                   {project.desc}
                 </p>
-                <div style={{ paddingTop: "clamp(4px, 0.4vw, 8px)" }}>
+                <div style={{ paddingTop: "clamp(2px, 0.2vw, 4px)" }}>
                   <a
                     href={project.link}
                     target='_blank'
