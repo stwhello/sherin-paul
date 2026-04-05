@@ -148,8 +148,8 @@ const ClientWork = () => {
           text-decoration: none;
           font-weight: 500;
           transition: background 0.25s ease, color 0.25s ease;
-          padding: clamp(7px, 0.75vw, 12px) clamp(14px, 1.5vw, 26px);
-          font-size: clamp(11px, 0.8vw, 14px);
+          padding: clamp(5px, 0.6vw, 10px) clamp(10px, 1.1vw, 22px);
+          font-size: clamp(14px, 1vw, 16px);
           white-space: nowrap;
         }
         .cw-btn:hover {
@@ -221,7 +221,7 @@ const ClientWork = () => {
                 <p
                   className="body-font text-white"
                   style={{
-                    fontSize: "clamp(10px, 0.8vw, 14px)",
+                    fontSize: "clamp(14px, 1vw, 16px)",
                     fontWeight: 400,
                     lineHeight: 1.65,
                     opacity: 0.88,

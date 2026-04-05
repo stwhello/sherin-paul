@@ -11,27 +11,27 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     title: "Frontend Development",
-    desc: "Crafting sleek, responsive, and engaging user interfaces.",
+    desc: "Building fast, responsive, and accessible user interfaces with modern frameworks.",
     tags: ["React", "Next.js", "Tailwind", "GSAP"],
   },
   {
     title: "Backend Development",
-    desc: "Building the logic that keeps your product fast and reliable.",
+    desc: "Designing robust and scalable APIs with clean architecture and efficient logic.",
     tags: ["Node.js", "Express", "Django"],
   },
   {
     title: "Database Architecture",
-    desc: "Designing secure and scalable data foundations.",
+    desc: "Structuring secure, scalable, and optimized data systems for high-performance applications.",
     tags: ["MongoDB", "PostgreSQL"],
   },
   {
     title: "CMS & Commerce",
-    desc: "Empowering brands with easy content control and online selling.",
+    desc: "Developing flexible CMS and e-commerce solutions for seamless content and business management.",
     tags: ["Shopify", "WordPress"],
   },
   {
     title: "Cloud & Automation",
-    desc: "Launching, scaling, and maintaining products with modern workflows.",
+    desc: "Deploying and maintaining applications with scalable cloud infrastructure and automated workflows.",
     tags: ["AWS", "Docker", "GitHub Actions"],
   },
 ];
@@ -138,7 +138,7 @@ const AccordionItem = ({ item, isOpen, onToggle }) => {
           ref={tagsWrapRef}
           style={{
             overflow: "hidden",
-            paddingBottom: "6px", 
+            paddingBottom: "6px",
           }}
         >
           <div
@@ -251,8 +251,9 @@ const WhatIDo = () => {
               lineHeight: "1.6",
             }}
           >
-            Designing and developing high-performance digital experiences that
-            help brands grow online.
+            Designing and building scalable web applications from frontend to
+            backend, combining performance, clean architecture, and seamless
+            user experiences.
           </p>
           <ComputerIllustration scrollTriggerRef={container} />
         </div>
