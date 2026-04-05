@@ -17,49 +17,49 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     title: "MAAC India",
-    desc: "Large-scale education website optimized for performance and responsive UI improvements.",
+    desc: "National platform for a leading animation & VFX institute, built for scale with optimized performance and responsive UI across all devices.",
     image: maac,
     link: "https://www.maacindia.com/",
   },
   {
     title: "Arena Multimedia",
-    desc: "Responsive institutional platform built with structured layouts and CMS integration.",
+    desc: "Institutional website for a career-focused AVGC-XR training brand, structured for clear course discovery and cross-device accessibility.",
     image: arena,
     link: "https://www.arena-multimedia.com/",
   },
   {
     title: "Kyomi Jewels",
-    desc: "Modern e-commerce jewelry platform with optimized product presentation and mobile responsiveness.",
+    desc: "Shopify-based silver jewellery store with category-driven navigation, delivery personalisation, and a clean mobile-first shopping experience.",
     image: kyomi,
     link: "https://kyomijewels.com/",
   },
   {
     title: "Design Anubhuti",
-    desc: "Creative portfolio website built with performant animations, bold presentation and structured for conversions.",
+    desc: "Creative studio portfolio with bold visual presentation, fluid animations, and a layout structured to showcase work and drive client enquiries.",
     image: anubhuti,
     link: "https://designanubhuti.com/",
   },
   {
     title: "Palki",
-    desc: "Premium brand platform with immersive layouts built with multi-experience UI that flows from layout to cart.",
+    desc: "E-commerce platform for chef-crafted freeze-dried gravies, featuring product-first layouts, a kitchen partner program, and seamless cart flow.",
     image: palki,
     link: "https://palkifnf.com/",
   },
   {
     title: "Paperfold Sequential",
-    desc: "Innovative editorial design with structured layout design and ultra-high performance applications.",
+    desc: "High-performance website for a design and print studio with structured editorial layouts and precision-crafted UI.",
     image: paperfold,
     link: "https://paperfold.in/",
   },
   {
     title: "Wand Fragrance",
-    desc: "Elegant fragrance e-commerce with architectural design with sleek UI and bold lifestyle branding approach.",
+    desc: "Fragrance e-commerce brand with an immersive storytelling approach, curated collections, combo offerings, and a B2B channel built in.",
     image: nano,
     link: "https://wandfragrance.com/",
   },
   {
     title: "Vibhog",
-    desc: "Sophisticated platform with immersive specialty across multiple pages with consistent brand UI across all areas.",
+    desc: "Premium rice brand website with cinematic video storytelling, product-focused pages, and a refined brand identity carried consistently across all sections.",
     image: mels,
     link: "https://mdln.co.in/",
   },
@@ -166,19 +166,23 @@ const ClientWork = () => {
         }}
       >
         <div
-          className="container-page text-center"
+          className='container-page text-center'
           style={{ marginBottom: "clamp(24px, 3vw, 52px)" }}
         >
           <h1
             ref={headingRef}
-            className="heading-font text-[#6C081F]"
-            style={{ fontSize: "clamp(38px, 5.5vw, 96px)", fontWeight: 400, lineHeight: 1.1 }}
+            className='heading-font text-[#6C081F]'
+            style={{
+              fontSize: "clamp(38px, 5.5vw, 96px)",
+              fontWeight: 400,
+              lineHeight: 1.1,
+            }}
           >
             CLIENT WORK
           </h1>
           <p
             ref={descRef}
-            className="body-font text-[#1E1E1E]"
+            className='body-font text-[#1E1E1E]'
             style={{
               fontSize: "clamp(13px, 1.2vw, 22px)",
               fontWeight: 400,
@@ -189,37 +193,49 @@ const ClientWork = () => {
           </p>
         </div>
 
-        <div className="cw-track">
+        <div className='cw-track'>
           {projects.map((project, i) => (
-            <div key={i} className="cw-card">
-
-              <div style={{
-                background: "#FDD0DA",
-                padding: "clamp(8px, 1vw, 16px) clamp(8px, 1vw, 16px) 0",
-                flexShrink: 0,
-              }}>
-                <div className="cw-img-wrap" style={{ aspectRatio: "43 / 33" }}>
-                  <img src={project.image} alt={project.title} draggable="false" />
+            <div key={i} className='cw-card'>
+              <div
+                style={{
+                  background: "#FDD0DA",
+                  padding: "clamp(8px, 1vw, 16px) clamp(8px, 1vw, 16px) 0",
+                  flexShrink: 0,
+                }}
+              >
+                <div className='cw-img-wrap' style={{ aspectRatio: "43 / 33" }}>
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    draggable='false'
+                  />
                 </div>
               </div>
 
-              <div style={{
-                background: "#6C0820",
-                borderRadius: "0 0 10px 10px",
-                padding: "clamp(12px, 1.3vw, 22px) clamp(12px, 1.3vw, 22px) clamp(14px, 1.5vw, 26px)",
-                display: "flex",
-                flexDirection: "column",
-                gap: "clamp(6px, 0.6vw, 10px)",
-                flex: 1,
-              }}>
+              <div
+                style={{
+                  background: "#6C0820",
+                  borderRadius: "0 0 10px 10px",
+                  padding:
+                    "clamp(12px, 1.3vw, 22px) clamp(12px, 1.3vw, 22px) clamp(14px, 1.5vw, 26px)",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "clamp(6px, 0.6vw, 10px)",
+                  flex: 1,
+                }}
+              >
                 <h3
-                  className="heading-font text-white"
-                  style={{ fontSize: "clamp(15px, 1.5vw, 28px)", fontWeight: 400, lineHeight: 1.1 }}
+                  className='heading-font text-white'
+                  style={{
+                    fontSize: "clamp(15px, 1.5vw, 28px)",
+                    fontWeight: 400,
+                    lineHeight: 1.1,
+                  }}
                 >
                   {project.title.toUpperCase()}
                 </h3>
                 <p
-                  className="body-font text-white"
+                  className='body-font text-white'
                   style={{
                     fontSize: "clamp(14px, 1vw, 16px)",
                     fontWeight: 400,
@@ -233,19 +249,17 @@ const ClientWork = () => {
                 <div style={{ paddingTop: "clamp(4px, 0.4vw, 8px)" }}>
                   <a
                     href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cw-btn body-font"
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='cw-btn body-font'
                   >
                     Live Website
                   </a>
                 </div>
               </div>
-
             </div>
           ))}
         </div>
-
       </section>
     </>
   );
