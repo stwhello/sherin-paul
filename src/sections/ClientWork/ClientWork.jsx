@@ -114,7 +114,7 @@ const ClientWork = () => {
           flex: 0 0 calc(
             (100vw - clamp(20px,6vw,120px) - clamp(10px,3vw,60px) - 3 * clamp(10px,1vw,16px)) / 3.5
           );
-          min-width: 220px;
+          min-width: 275px;
           max-width: 490px;
           scroll-snap-align: start;
           border-radius: 10px;
@@ -149,7 +149,7 @@ const ClientWork = () => {
           font-weight: 500;
           transition: background 0.25s ease, color 0.25s ease;
           padding: clamp(5px, 0.6vw, 10px) clamp(10px, 1.1vw, 22px);
-          font-size: clamp(14px, 1vw, 16px);
+          font-size: clamp(11px, 1vw, 16px);
           white-space: nowrap;
         }
         .cw-btn:hover {
@@ -227,7 +227,7 @@ const ClientWork = () => {
                 <h3
                   className='heading-font text-white'
                   style={{
-                    fontSize: "clamp(15px, 1.5vw, 28px)",
+                    fontSize: "clamp(16px, 1.5vw, 28px)",
                     fontWeight: 400,
                     lineHeight: 1.1,
                   }}
@@ -246,7 +246,7 @@ const ClientWork = () => {
                 >
                   {project.desc}
                 </p>
-                <div style={{ paddingTop: "clamp(2px, 0.2vw, 4px)" }}>
+                <div style={{ paddingTop: "clamp(4px, 0.2vw, 4px)" }}>
                   <a
                     href={project.link}
                     target='_blank'
