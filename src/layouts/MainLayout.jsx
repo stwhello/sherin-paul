@@ -12,7 +12,7 @@ const MainLayout = () => {
       <Hero />
       <About />
       <WhatIDo />
-      <SelectedWork />
+      {/* <SelectedWork /> */}
       <ClientWork />
       <WhatIBuild />
       <Contact />
