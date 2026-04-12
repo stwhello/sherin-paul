@@ -1,7 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-
+import gsapCoffeeVideo from "../../assets/gsap-coffee.mp4";
+import gsapCocktailsVideo from "../../assets/gsap-cocktails.mp4";
+import shoeWebsiteVideo from "../../assets/shoe-website.mp4";
+import gsapCoffeeImg from "../../assets/gsap-coffee-pic.png";
+import gsapCocktailsImg from "../../assets/gsap-cocktails-pic.png";
+import shoeWebsiteImg from "../../assets/shoe-website-pic.png";
+import pinterestImage from "../../assets/gsap-coffee-pic.png"; 
 import leftArrow from "../../assets/left-arrow.png";
 import rightArrow from "../../assets/right-arrow.png";
 
@@ -12,9 +18,10 @@ const projects = [
     description:
       "A modern, animation-driven landing page inspired by award-winning web design. Built with performance-focused smooth scroll effects and immersive UI interactions.",
     tech: ["React", "Tailwind CSS", "GSAP"],
-    video: "/assets/videos/gsap-coffee.mp4",
+    video: gsapCoffeeVideo,
+    image: gsapCoffeeImg,
     live: "https://gsap-coffee.vercel.app/",
-    github: "",
+    github: "https://github.com/stwhello/gsap-coffee",
   },
   {
     title: "GSAP COCKTAILS",
@@ -22,7 +29,8 @@ const projects = [
     description:
       "A visually engaging landing page showcasing advanced scroll animations and dynamic content transitions.",
     tech: ["React", "GSAP", "Tailwind CSS"],
-    video: "/assets/videos/gsap-cocktails.mp4",
+    video: gsapCocktailsVideo,
+    image: gsapCocktailsImg,
     live: "https://gsap-cocktails-landing-page.vercel.app/",
     github: "",
   },
