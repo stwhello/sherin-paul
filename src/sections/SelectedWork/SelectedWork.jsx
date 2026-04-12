@@ -40,7 +40,8 @@ const projects = [
     description:
       "A full-stack web app enabling image uploads, previews, and dynamic feed layouts.",
     tech: ["React", "Node.js", "Express", "MongoDB"],
-    video: "/assets/videos/pinterest.mp4",
+    video: null,
+    image: pinterestImage,
     live: "",
     github: "https://github.com/stwhello/pinterest-clone",
   },
@@ -50,9 +51,10 @@ const projects = [
     description:
       "A responsive product showcase website with optimized UI and structured layouts.",
     tech: ["HTML", "CSS", "JavaScript"],
-    video: "/assets/videos/shoes.mp4",
+    video: shoeWebsiteVideo,
+    image: shoeWebsiteImg,
     live: "https://e-commerce-shoe-website-two.vercel.app/",
-    github: "",
+    github: "https://github.com/stwhello/e-commerce-shoe-website",
   },
 ];
 
