@@ -173,7 +173,7 @@ const ClientWork = () => {
             ref={headingRef}
             className='heading-font text-[#6C081F]'
             style={{
-              fontSize: "clamp(38px, 5.5vw, 96px)",
+              fontSize: "clamp(48px,5vw,80px)",
               fontWeight: 400,
               lineHeight: 1.1,
             }}

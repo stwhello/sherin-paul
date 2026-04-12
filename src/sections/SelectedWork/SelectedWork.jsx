@@ -7,7 +7,7 @@ import shoeWebsiteVideo from "../../assets/shoe-website.mp4";
 import gsapCoffeeImg from "../../assets/gsap-coffee-pic.png";
 import gsapCocktailsImg from "../../assets/gsap-cocktails-pic.png";
 import shoeWebsiteImg from "../../assets/shoe-website-pic.png";
-import pinterestImage from "../../assets/gsap-coffee-pic.png"; 
+import pinterestImage from "../../assets/gsap-coffee-pic.png";
 import leftArrow from "../../assets/left-arrow.png";
 import rightArrow from "../../assets/right-arrow.png";
 
@@ -27,18 +27,18 @@ const projects = [
     title: "GSAP COCKTAILS",
     subtitle: "Cocktail-Themed Animated Landing Page",
     description:
-      "A visually engaging landing page showcasing advanced scroll animations and dynamic content transitions.",
+      "A visually engaging landing page showcasing advanced scroll animations and dynamic content transitions. Designed to demonstrate interactive frontend architecture.",
     tech: ["React", "GSAP", "Tailwind CSS"],
     video: gsapCocktailsVideo,
     image: gsapCocktailsImg,
     live: "https://gsap-cocktails-landing-page.vercel.app/",
-    github: "",
+    github: "https://github.com/stwhello/gsap_cocktails",
   },
   {
     title: "PINTEREST CLONE",
     subtitle: "Full Stack Image Sharing Platform",
     description:
-      "A full-stack web app enabling image uploads, previews, and dynamic feed layouts.",
+      "A full-stack web application enabling image uploads, previews, and dynamic feed layouts. Focused on scalable architecture and modular frontend components.",
     tech: ["React", "Node.js", "Express", "MongoDB"],
     video: null,
     image: pinterestImage,
@@ -49,7 +49,7 @@ const projects = [
     title: "E-COMMERCE SHOES",
     subtitle: "Responsive E-Commerce Frontend",
     description:
-      "A responsive product showcase website with optimized UI and structured layouts.",
+      "A fully responsive product showcase website with structured layouts and optimized UI components.",
     tech: ["HTML", "CSS", "JavaScript"],
     video: shoeWebsiteVideo,
     image: shoeWebsiteImg,
@@ -60,117 +60,139 @@ const projects = [
 
 const SelectedWork = () => {
   const [index, setIndex] = useState(0);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const container = useRef();
 
-  const next = () => {
-    setIndex((prev) => (prev + 1) % projects.length);
-  };
-
-  const prev = () => {
+  const next = () => setIndex((prev) => (prev + 1) % projects.length);
+  const prev = () =>
     setIndex((prev) => (prev - 1 + projects.length) % projects.length);
-  };
+
+  useEffect(() => {
+    setVideoLoaded(false);
+  }, [index]);
 
   useGSAP(() => {
     gsap.fromTo(
       ".project-media",
       { opacity: 0, scale: 0.96 },
-      { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }
+      { opacity: 1, scale: 1, duration: 0.6 },
     );
 
     gsap.fromTo(
       ".project-content",
       { y: 40, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, ease: "power3.out", delay: 0.1 }
+      { y: 0, opacity: 1, duration: 0.6 },
     );
   }, [index]);
 
   const project = projects[index];
 
   return (
-    <section ref={container} className="container-page mt-40">
-      
-      {/* HEADING */}
-      <div className="text-center">
-        <h2 className="heading-font text-[#6C081F] text-[clamp(48px,5vw,80px)]">
+    <section ref={container} className='container-page'>
+      <div className='text-center'>
+        <h2 className='heading-font text-[#6C081F] text-[clamp(48px,5vw,80px)]'>
           SELECTED WORK
         </h2>
-        <p className="body-font text-[#6C081F] mt-3 text-[clamp(14px,1.2vw,18px)]">
-          Designing and developing high-performance digital experiences that help brands grow online.
+        <p className='body-font text-[#1E1E1E] text-[clamp(14px,1.2vw,18px)]'>
+          Designing and developing high-performance digital experiences that
+          help brands grow online.
         </p>
       </div>
 
-      {/* CONTENT */}
-      <div className="mt-16 flex flex-col lg:flex-row gap-10 items-center">
-        
-        {/* LEFT - VIDEO */}
-        <div className="project-media w-full lg:w-[65%]">
-          <div className="rounded-[20px] overflow-hidden bg-gray-200">
-            <video
-              key={project.video}
-              src={project.video}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              className="w-full h-full object-cover"
+      <div className='mt-12 flex flex-col lg:flex-row gap-10 items-center'>
+        <div className='project-media w-full lg:w-[65%]'>
+          <div className='rounded-[20px] overflow-hidden bg-gray-200 relative aspect-video'>
+            <img
+              src={project.image}
+              alt={project.title}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 z-10 ${
+                videoLoaded ? "opacity-0" : "opacity-100"
+              }`}
             />
+            {project.video && (
+              <video
+                key={project.video}
+                src={project.video}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload='metadata'
+                onCanPlayThrough={() => {
+                  setTimeout(() => {
+                    setVideoLoaded(true);
+                  }, 300);
+                }}
+                className={`w-full h-full object-cover transition-opacity duration-700 z-20 ${
+                  videoLoaded ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            )}
           </div>
         </div>
 
-        {/* RIGHT - TEXT */}
-        <div className="project-content w-full lg:w-[35%] relative">
-          
-          {/* ARROWS */}
-          <div className="flex gap-4 justify-end mb-6">
-            <button onClick={prev} className="w-10 h-10 border border-[#6C081F] rounded-full flex items-center justify-center hover:bg-[#6C081F] transition">
-              <img src={leftArrow} className="w-4" />
+        <div className='project-content w-full lg:w-[35%] relative'>
+          <div className='flex gap-4 justify-end mb-6'>
+            <button
+              onClick={prev}
+              className='group transition-all duration-300 active:scale-90'
+            >
+              <img
+                src={leftArrow}
+                className='w-12 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 group-hover:brightness-110'
+              />
             </button>
-            <button onClick={next} className="w-10 h-10 border border-[#6C081F] rounded-full flex items-center justify-center hover:bg-[#6C081F] transition">
-              <img src={rightArrow} className="w-4" />
+
+            <button
+              onClick={next}
+              className='group transition-all duration-300 active:scale-90'
+            >
+              <img
+                src={rightArrow}
+                className='w-12 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 group-hover:brightness-110'
+              />
             </button>
           </div>
 
-          <h3 className="heading-font text-[#6C081F] text-[clamp(24px,2.5vw,32px)]">
+          <h3 className='heading-font text-[#6C081F] text-[clamp(24px,2.5vw,32px)]'>
             {project.title}
           </h3>
 
-          <p className="body-font text-[#6C081F] mt-2 text-[clamp(14px,1.1vw,16px)]">
+          <p className='body-font text-[#1E1E1E] font-bold mt-2 text-[clamp(14px,1.1vw,16px)]'>
             {project.subtitle}
           </p>
 
-          <p className="body-font text-[#6C081F] mt-3 text-[clamp(13px,1vw,15px)] leading-relaxed">
+          <p className='body-font text-[#1E1E1E] mt-3 text-[clamp(13px,1vw,15px)] leading-relaxed'>
             {project.description}
           </p>
 
-          {/* TECH TAGS */}
-          <div className="flex flex-wrap gap-3 mt-5">
+          <div className='flex flex-wrap gap-3 mt-5'>
             {project.tech.map((item, i) => (
               <span
                 key={i}
-                className="px-4 py-1 border border-[#6C081F] rounded-full text-[#6C081F] text-sm"
+                className='px-8 py-1 border border-[#6C081F] rounded-full text-[#6C081F] text-sm'
               >
                 {item}
               </span>
             ))}
           </div>
 
-          {/* LINKS */}
-          <div className="flex gap-4 mt-6">
+          <div className='flex gap-3 mt-6'>
             {project.live && (
               <a
                 href={project.live}
-                target="_blank"
-                className="btn btn-outline-dark"
+                target='_blank'
+                className='px-4 py-2 text-sm rounded-md bg-[#6C081F] text-white hover:bg-[#520615] transition-all duration-300 hover:-translate-y-0.5'
               >
-                Live
+                Live Site →
               </a>
             )}
+
             {project.github && (
               <a
                 href={project.github}
-                target="_blank"
-                className="btn btn-outline-dark"
+                target='_blank'
+                className='px-4 py-2 text-sm rounded-md border border-[#6C081F] text-[#6C081F] hover:bg-[#6C081F] hover:text-white transition-all duration-300 hover:-translate-y-0.5'
               >
                 GitHub
               </a>

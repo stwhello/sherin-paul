@@ -12,7 +12,7 @@ const MainLayout = () => {
       <Hero />
       <About />
       <WhatIDo />
-      {/* <SelectedWork /> */}
+      <SelectedWork />
       <ClientWork />
       <WhatIBuild />
       <Contact />
@@ -21,3 +21,5 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
+
+
