@@ -4,10 +4,11 @@ import gsap from "gsap";
 import gsapCoffeeVideo from "../../assets/gsap-coffee.mp4";
 import gsapCocktailsVideo from "../../assets/gsap-cocktails.mp4";
 import shoeWebsiteVideo from "../../assets/shoe-website.mp4";
+import pinterestVideo from "../../assets/pinterest.mp4";
 import gsapCoffeeImg from "../../assets/gsap-coffee-pic.webp";
 import gsapCocktailsImg from "../../assets/gsap-cocktails-pic.webp";
 import shoeWebsiteImg from "../../assets/shoe-website-pic.webp";
-import pinterestImage from "../../assets/gsap-coffee-pic.webp";
+import pinterestImage from "../../assets/pinterest-pic.png";
 import leftArrow from "../../assets/left-arrow.png";
 import rightArrow from "../../assets/right-arrow.png";
 
@@ -40,7 +41,7 @@ const projects = [
     description:
       "A full-stack web application enabling image uploads, previews, and dynamic feed layouts. Focused on scalable architecture and modular frontend components.",
     tech: ["React", "Node.js", "Express", "MongoDB"],
-    video: null,
+    video: pinterestVideo,
     image: pinterestImage,
     live: "",
     github: "https://github.com/stwhello/pinterest-clone",
@@ -105,7 +106,7 @@ const SelectedWork = () => {
             <img
               src={project.image}
               alt={project.title}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 z-10 ${
+              className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 z-10 ${
                 videoLoaded ? "opacity-0" : "opacity-100"
               }`}
             />
@@ -123,7 +124,7 @@ const SelectedWork = () => {
                     setVideoLoaded(true);
                   }, 300);
                 }}
-                className={`w-full h-full object-cover transition-opacity duration-700 z-20 ${
+                className={`w-full h-full object-contain transition-opacity duration-700 z-20 ${
                   videoLoaded ? "opacity-100" : "opacity-0"
                 }`}
               />
