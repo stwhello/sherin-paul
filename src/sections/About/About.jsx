@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-import aboutImg from "../../assets/about.png";
-import arrow from "../../assets/arrow.png";
+import aboutImg from "../../assets/about.webp";
+import arrow from "../../assets/arrow.webp";
 
 const About = () => {
   const container = useRef();
