@@ -3,14 +3,14 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
-import maac from "../../assets/maac.png";
-import arena from "../../assets/arena.png";
-import kyomi from "../../assets/kyomi.png";
-import anubhuti from "../../assets/anubhuti.png";
-import palki from "../../assets/palki.png";
-import paperfold from "../../assets/kyomi.png";
-import nano from "../../assets/wand.png";
-import mels from "../../assets/mdln.png";
+import maac from "../../assets/maac.webp";
+import arena from "../../assets/arena.webp";
+import kyomi from "../../assets/kyomi.webp";
+import anubhuti from "../../assets/anubhuti.webp";
+import palki from "../../assets/palki.webp";
+import paperfold from "../../assets/kyomi.webp";
+import nano from "../../assets/wand.webp";
+import mels from "../../assets/mdln.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
