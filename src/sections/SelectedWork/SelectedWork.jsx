@@ -4,10 +4,10 @@ import gsap from "gsap";
 import gsapCoffeeVideo from "../../assets/gsap-coffee.mp4";
 import gsapCocktailsVideo from "../../assets/gsap-cocktails.mp4";
 import shoeWebsiteVideo from "../../assets/shoe-website.mp4";
-import gsapCoffeeImg from "../../assets/gsap-coffee-pic.png";
-import gsapCocktailsImg from "../../assets/gsap-cocktails-pic.png";
-import shoeWebsiteImg from "../../assets/shoe-website-pic.png";
-import pinterestImage from "../../assets/gsap-coffee-pic.png";
+import gsapCoffeeImg from "../../assets/gsap-coffee-pic.webp";
+import gsapCocktailsImg from "../../assets/gsap-cocktails-pic.webp";
+import shoeWebsiteImg from "../../assets/shoe-website-pic.webp";
+import pinterestImage from "../../assets/gsap-coffee-pic.webp";
 import leftArrow from "../../assets/left-arrow.png";
 import rightArrow from "../../assets/right-arrow.png";
 
