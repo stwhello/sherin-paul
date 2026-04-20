@@ -234,7 +234,7 @@ const WhatIDo = () => {
           <h2
             className='whatiido-heading heading-font text-[#6C081F]'
             style={{
-              fontSize: "clamp(36px, 5.5vw, 96px)",
+              fontSize: "clamp(36px, 4.5vw, 96px)",
               lineHeight: "clamp(42px, 6.5vw, 120px)",
               fontWeight: 400,
             }}

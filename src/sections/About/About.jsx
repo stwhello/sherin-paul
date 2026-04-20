@@ -126,7 +126,7 @@ const About = () => {
           <div className='max-w-160 ml-auto text-right'>
             <h2
               className='about-heading heading-font text-[#6C081F]'
-              style={{ fontSize: "clamp(48px, 5vw, 80px)" }}
+              style={{ fontSize: "clamp(48px, 4.5vw, 80px)" }}
             >
               ABOUT ME
             </h2>
