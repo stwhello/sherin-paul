@@ -8,7 +8,7 @@ import pinterestVideo from "../../assets/pinterest.mp4";
 import gsapCoffeeImg from "../../assets/gsap-coffee-pic.webp";
 import gsapCocktailsImg from "../../assets/gsap-cocktails-pic.webp";
 import shoeWebsiteImg from "../../assets/shoe-website-pic.webp";
-import pinterestImage from "../../assets/pinterest-pic.png";
+import pinterestImage from "../../assets/pinterest-pic.webp";
 import leftArrow from "../../assets/left-arrow.png";
 import rightArrow from "../../assets/right-arrow.png";
 
