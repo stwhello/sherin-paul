@@ -94,7 +94,6 @@ const SelectedWork = () => {
   return (
     <section ref={container} className="container-page px-4 sm:px-6 lg:px-0">
       
-      {/* Heading */}
       <div className="text-center">
         <h2 className="heading-font text-[#6C081F] text-[clamp(32px,4vw,80px)]">
           SELECTED WORK
@@ -104,14 +103,11 @@ const SelectedWork = () => {
         </p>
       </div>
 
-      {/* Layout */}
       <div className="mt-8 sm:mt-10 lg:mt-12 flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10 items-center">
         
-        {/* MEDIA */}
         <div className="project-media w-full lg:w-[65%]">
           <div className="rounded-2xl sm:rounded-[20px] overflow-hidden bg-black relative w-full h-55 sm:h-75 md:h-100 lg:h-112.5">
             
-            {/* Image fallback */}
             <img
               src={project.image}
               alt={project.title}
@@ -120,7 +116,6 @@ const SelectedWork = () => {
               }`}
             />
 
-            {/* Video */}
             <video
               key={project.video}
               src={project.video}
