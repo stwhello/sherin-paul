@@ -80,7 +80,7 @@ const Star = ({ size = 40 }) => (
 
 // ─── Hamburger menu icon ─────────────────────────────────────────────────────
 const HamburgerIcon = ({ open }) => (
-  <div className="flex flex-col gap-[5px] cursor-pointer">
+  <div className="flex flex-col gap-1.25 cursor-pointer">
     <span
       style={{
         display: "block",
@@ -196,7 +196,7 @@ const Hero = () => {
 
         #home {
           background: #6C081F;
-          min-height: 100vh;
+          min-height: 90vh;
           position: relative;
           overflow: hidden;
           display: flex;

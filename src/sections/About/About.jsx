@@ -40,7 +40,7 @@ const About = () => {
   });
 
   return (
-    <section ref={container} className='container-page mt-40'>
+    <section ref={container} className='container-page mt-60'>
    
       <div
         className='hidden lg:flex relative bg-[#F2AEBD] rounded-t-[50px] items-center overflow-visible pb-8'
