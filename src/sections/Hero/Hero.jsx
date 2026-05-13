@@ -29,52 +29,8 @@ const scrollTo = (id) => {
   if (el) el.scrollIntoView({ behavior: "smooth" });
 };
 
-// ─── 3-D Bubble SVG ─────────────────────────────────────────────────────────
-const Bubble = () => (
-  <svg
-    viewBox='0 0 420 420'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-    className='bubble-svg'
-    style={{ width: "100%", height: "100%" }}
-  >
-    <defs>
-      <radialGradient id='bubbleMain' cx='38%' cy='35%' r='65%'>
-        <stop offset='0%' stopColor='#F9D0DC' stopOpacity='0.95' />
-        <stop offset='55%' stopColor='#F2AEBD' stopOpacity='0.85' />
-        <stop offset='100%' stopColor='#d4708a' stopOpacity='0.7' />
-      </radialGradient>
-      <radialGradient id='bubbleSheen' cx='30%' cy='25%' r='40%'>
-        <stop offset='0%' stopColor='#fff' stopOpacity='0.55' />
-        <stop offset='100%' stopColor='#fff' stopOpacity='0' />
-      </radialGradient>
-      <radialGradient id='bubbleBottom' cx='60%' cy='85%' r='35%'>
-        <stop offset='0%' stopColor='#fff' stopOpacity='0.18' />
-        <stop offset='100%' stopColor='#fff' stopOpacity='0' />
-      </radialGradient>
-      <filter id='bubbleBlur'>
-        <feGaussianBlur stdDeviation='1.5' />
-      </filter>
-    </defs>
-    {/* Main sphere */}
-    <ellipse cx='210' cy='215' rx='195' ry='192' fill='url(#bubbleMain)' />
-    {/* Top sheen */}
-    <ellipse cx='175' cy='148' rx='110' ry='80' fill='url(#bubbleSheen)' />
-    {/* Bottom reflection */}
-    <ellipse cx='235' cy='330' rx='80' ry='45' fill='url(#bubbleBottom)' />
-    {/* Tiny specular highlight */}
-    <ellipse
-      cx='148'
-      cy='120'
-      rx='28'
-      ry='18'
-      fill='#fff'
-      opacity='0.45'
-      filter='url(#bubbleBlur)'
-    />
-    <ellipse cx='138' cy='114' rx='10' ry='7' fill='#fff' opacity='0.7' />
-  </svg>
-);
+// ─── Amoeba shape ────────────────────────────────────────────────────────────
+const Amoeba = () => <div className='amoeba-shape' />;
 
 // ─── Star sparkle SVG ────────────────────────────────────────────────────────
 const Star = ({ size = 40 }) => (
@@ -234,14 +190,14 @@ const Hero = () => {
 
       // Stars pulsing
       gsap.to(".hero-star-1", {
-        scale: 1.15,
+        scale: 1.6,
         duration: 1.8,
         ease: "sine.inOut",
         yoyo: true,
         repeat: -1,
       });
       gsap.to(".hero-star-2", {
-        scale: 1.1,
+        scale: 1.4,
         duration: 2.2,
         ease: "sine.inOut",
         yoyo: true,
@@ -279,7 +235,7 @@ const Hero = () => {
 
         .hero-logo {
           font-family: "Bebas Neue", sans-serif;
-          font-size: clamp(28px, 3.5vw, 56px);
+          font-size: clamp(28px, 2.8vw, 56px);
           color: #F2DDDC;
           font-weight: 400;
           letter-spacing: 0.04em;
@@ -353,7 +309,7 @@ const Hero = () => {
 
         .hero-greeting {
           font-family: "Bebas Neue", sans-serif;
-          font-size: clamp(44px, 5vw, 96px);
+          font-size: clamp(44px, 4.5vw, 96px);
           font-weight: 400;
           color: #F2DDDC;
           line-height: clamp(50px, 6.25vw, 120px);
@@ -366,7 +322,7 @@ const Hero = () => {
 
         .hero-typing {
           font-family: "Bebas Neue", sans-serif;
-          font-size: clamp(44px, 5vw, 96px);
+          font-size: clamp(44px, 4.9vw, 96px);
           font-weight: 400;
           color: #F2DDDC;
           line-height: clamp(50px, 6.25vw, 120px);
@@ -380,7 +336,7 @@ const Hero = () => {
           width: clamp(2px, 0.2vw, 4px);
           height: clamp(36px, 4.2vw, 82px);
           background: #F2AEBD;
-          margin-left: 4px;
+          margin-left: 8px;
           animation: blink 0.75s step-end infinite;
           vertical-align: middle;
         }
@@ -392,7 +348,7 @@ const Hero = () => {
 
         .hero-desc {
           font-family: "Lato", sans-serif;
-          font-size: clamp(14px, 1.25vw, 24px);
+          font-size: clamp(14px, 1.2vw, 24px);
           font-weight: 400;
           color: #F2DDDC;
           margin-top: clamp(12px, 1.5vw, 24px);
@@ -438,7 +394,7 @@ const Hero = () => {
         /* PORTFOLIO bg text */
         .hero-portfolio-text {
           position: absolute;
-          right: clamp(-20px, -2vw, -10px);
+          right: clamp(-20px, -1vw, -10px);
           top: 50%;
           transform: translateY(-55%);
           display: flex;
@@ -451,28 +407,60 @@ const Hero = () => {
         .portfolio-word {
           font-family: "Anton", sans-serif;
           font-size: clamp(70px, 9.5vw, 150px);
-          font-weight: 400;
+          font-weight: 500;
           line-height: 1;
           letter-spacing: clamp(6px, 1vw, 15px);
           -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: rgba(255,255,255,0.35);
+          -webkit-text-stroke-color: white;
           color: transparent;
           white-space: nowrap;
         }
 
-        /* Bubble */
+        .portfolio-word:nth-child(2) {
+  -webkit-text-stroke-color: rgba(255,255,255,0.85);
+  opacity: 0.55;
+}
+
+/* third word */
+.portfolio-word:nth-child(3) {
+  -webkit-text-stroke-color: rgba(255,255,255,0.50);
+  opacity: 0.4;
+}
+
+        /* Amoeba */
         .hero-bubble-wrap {
           position: absolute;
-          left: clamp(10px, 4vw, 60px);
+          right: 28%;
           bottom: clamp(-20px, -2vw, 0px);
-          width: clamp(260px, 35vw, 580px);
-          height: clamp(260px, 35vw, 580px);
+          width: clamp(260px, 30vw, 540px);
+          height: clamp(260px, 30vw, 540px);
           z-index: 2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .amoeba-shape {
+          width: 100%;
+          height: 100%;
+          background: #F2AEBD;
+          animation: amoeba-morph 8s ease-in-out infinite;
+        }
+
+        @keyframes amoeba-morph {
+          0%   { border-radius: 60% 40% 55% 45% / 50% 60% 40% 55%; }
+          14%  { border-radius: 45% 55% 40% 60% / 60% 40% 58% 42%; }
+          28%  { border-radius: 55% 45% 65% 35% / 42% 62% 38% 58%; }
+          42%  { border-radius: 38% 62% 48% 52% / 55% 45% 62% 38%; }
+          57%  { border-radius: 62% 38% 52% 48% / 38% 58% 44% 56%; }
+          71%  { border-radius: 48% 52% 38% 62% / 62% 38% 55% 45%; }
+          85%  { border-radius: 52% 48% 60% 40% / 46% 54% 42% 58%; }
+          100% { border-radius: 60% 40% 55% 45% / 50% 60% 40% 55%; }
         }
 
       .hero-image-wrap {
           position: absolute;
-          right: 18%;
+          right: 28%;
           bottom: clamp(-60px, -5vw, -20px);
           z-index: 3;
           width: clamp(220px, 34.3vw, 659px);
@@ -493,16 +481,15 @@ const Hero = () => {
           right: clamp(20px, 6vw, 120px);
           bottom: clamp(20px, 3vw, 50px);
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           gap: clamp(8px, 1vw, 16px);
           z-index: 10;
         }
 
         .hero-socials a {
           display: block;
-          width: clamp(40px, 3.5vw, 60px);
-          height: clamp(40px, 3.5vw, 60px);
-          border-radius: 12px;
+          width: clamp(40px, 3vw, 60px);
+          height: clamp(40px, 3vw, 60px);
           overflow: hidden;
           transition: transform 0.2s ease, opacity 0.2s ease;
         }
@@ -522,14 +509,14 @@ const Hero = () => {
         /* Stars */
         .hero-star-1 {
           position: absolute;
-          left: clamp(-10px, 3vw, 50px);
+          left: clamp(-10px, 5vw, 80px);
           top: clamp(20px, 8vw, 100px);
           z-index: 4;
         }
 
         .hero-star-2 {
           position: absolute;
-          left: clamp(20px, 6vw, 90px);
+          left: clamp(20px, 8vw, 110px);
           top: clamp(80px, 15vw, 200px);
           z-index: 4;
         }
@@ -727,9 +714,9 @@ const Hero = () => {
               <Star size={28} />
             </div>
 
-            {/* 3D Bubble */}
+            {/* Amoeba */}
             <div className='hero-bubble-wrap hero-bubble'>
-              <Bubble />
+              <Amoeba />
             </div>
 
             {/* Hero Image */}
