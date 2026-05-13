@@ -32,55 +32,63 @@ const scrollTo = (id) => {
 // ─── 3-D Bubble SVG ─────────────────────────────────────────────────────────
 const Bubble = () => (
   <svg
-    viewBox="0 0 420 420"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="bubble-svg"
+    viewBox='0 0 420 420'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    className='bubble-svg'
     style={{ width: "100%", height: "100%" }}
   >
     <defs>
-      <radialGradient id="bubbleMain" cx="38%" cy="35%" r="65%">
-        <stop offset="0%" stopColor="#F9D0DC" stopOpacity="0.95" />
-        <stop offset="55%" stopColor="#F2AEBD" stopOpacity="0.85" />
-        <stop offset="100%" stopColor="#d4708a" stopOpacity="0.7" />
+      <radialGradient id='bubbleMain' cx='38%' cy='35%' r='65%'>
+        <stop offset='0%' stopColor='#F9D0DC' stopOpacity='0.95' />
+        <stop offset='55%' stopColor='#F2AEBD' stopOpacity='0.85' />
+        <stop offset='100%' stopColor='#d4708a' stopOpacity='0.7' />
       </radialGradient>
-      <radialGradient id="bubbleSheen" cx="30%" cy="25%" r="40%">
-        <stop offset="0%" stopColor="#fff" stopOpacity="0.55" />
-        <stop offset="100%" stopColor="#fff" stopOpacity="0" />
+      <radialGradient id='bubbleSheen' cx='30%' cy='25%' r='40%'>
+        <stop offset='0%' stopColor='#fff' stopOpacity='0.55' />
+        <stop offset='100%' stopColor='#fff' stopOpacity='0' />
       </radialGradient>
-      <radialGradient id="bubbleBottom" cx="60%" cy="85%" r="35%">
-        <stop offset="0%" stopColor="#fff" stopOpacity="0.18" />
-        <stop offset="100%" stopColor="#fff" stopOpacity="0" />
+      <radialGradient id='bubbleBottom' cx='60%' cy='85%' r='35%'>
+        <stop offset='0%' stopColor='#fff' stopOpacity='0.18' />
+        <stop offset='100%' stopColor='#fff' stopOpacity='0' />
       </radialGradient>
-      <filter id="bubbleBlur">
-        <feGaussianBlur stdDeviation="1.5" />
+      <filter id='bubbleBlur'>
+        <feGaussianBlur stdDeviation='1.5' />
       </filter>
     </defs>
     {/* Main sphere */}
-    <ellipse cx="210" cy="215" rx="195" ry="192" fill="url(#bubbleMain)" />
+    <ellipse cx='210' cy='215' rx='195' ry='192' fill='url(#bubbleMain)' />
     {/* Top sheen */}
-    <ellipse cx="175" cy="148" rx="110" ry="80" fill="url(#bubbleSheen)" />
+    <ellipse cx='175' cy='148' rx='110' ry='80' fill='url(#bubbleSheen)' />
     {/* Bottom reflection */}
-    <ellipse cx="235" cy="330" rx="80" ry="45" fill="url(#bubbleBottom)" />
+    <ellipse cx='235' cy='330' rx='80' ry='45' fill='url(#bubbleBottom)' />
     {/* Tiny specular highlight */}
-    <ellipse cx="148" cy="120" rx="28" ry="18" fill="#fff" opacity="0.45" filter="url(#bubbleBlur)" />
-    <ellipse cx="138" cy="114" rx="10" ry="7" fill="#fff" opacity="0.7" />
+    <ellipse
+      cx='148'
+      cy='120'
+      rx='28'
+      ry='18'
+      fill='#fff'
+      opacity='0.45'
+      filter='url(#bubbleBlur)'
+    />
+    <ellipse cx='138' cy='114' rx='10' ry='7' fill='#fff' opacity='0.7' />
   </svg>
 );
 
 // ─── Star sparkle SVG ────────────────────────────────────────────────────────
 const Star = ({ size = 40 }) => (
-  <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
+  <svg width={size} height={size} viewBox='0 0 40 40' fill='none'>
     <path
-      d="M20 0 L22.5 17.5 L40 20 L22.5 22.5 L20 40 L17.5 22.5 L0 20 L17.5 17.5 Z"
-      fill="#F5A623"
+      d='M20 0 L22.5 17.5 L40 20 L22.5 22.5 L20 40 L17.5 22.5 L0 20 L17.5 17.5 Z'
+      fill='#F5A623'
     />
   </svg>
 );
 
 // ─── Hamburger menu icon ─────────────────────────────────────────────────────
 const HamburgerIcon = ({ open }) => (
-  <div className="flex flex-col gap-1.25 cursor-pointer">
+  <div className='flex flex-col gap-1.25 cursor-pointer'>
     <span
       style={{
         display: "block",
@@ -132,7 +140,10 @@ const Hero = () => {
     let timeout;
 
     if (!isDeleting && displayed.length < current.length) {
-      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 80);
+      timeout = setTimeout(
+        () => setDisplayed(current.slice(0, displayed.length + 1)),
+        80,
+      );
     } else if (!isDeleting && displayed.length === current.length) {
       timeout = setTimeout(() => setIsDeleting(true), 1800);
     } else if (isDeleting && displayed.length > 0) {
@@ -146,48 +157,100 @@ const Hero = () => {
   }, [displayed, isDeleting, titleIndex]);
 
   // ── GSAP entrance animations ──────────────────────────────────────────────
-  useGSAP(() => {
-    const tl = gsap.timeline({ delay: 0.2 });
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({ delay: 0.2 });
 
-    tl.from(".hero-logo", { y: -30, opacity: 0, duration: 0.6, ease: "power3.out" })
-      .from(".hero-nav", { y: -30, opacity: 0, duration: 0.6, ease: "power3.out" }, "-=0.4")
-      .from(".hero-greeting", { x: -60, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.3")
-      .from(".hero-typing", { x: -60, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.5")
-      .from(".hero-desc", { x: -40, opacity: 0, duration: 0.6, ease: "power3.out" }, "-=0.4")
-      .from(".hero-btn", { x: -30, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.3")
-      .from(".hero-portfolio-text", { opacity: 0, duration: 1, ease: "power2.out" }, "-=0.6")
-      .from(".hero-bubble", { scale: 0.7, opacity: 0, duration: 1, ease: "elastic.out(1,0.6)" }, "-=0.8")
-      .from(".hero-image", { y: 60, opacity: 0, duration: 0.9, ease: "power3.out" }, "-=0.6")
-      .from(".hero-star-1", { scale: 0, rotate: -90, duration: 0.5, ease: "back.out(2)" }, "-=0.5")
-      .from(".hero-star-2", { scale: 0, rotate: 90, duration: 0.5, ease: "back.out(2)" }, "-=0.3")
-      .from(".hero-socials", { y: 30, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.3");
+      tl.from(".hero-logo", {
+        y: -30,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power3.out",
+      })
+        .from(
+          ".hero-nav",
+          { y: -30, opacity: 0, duration: 0.6, ease: "power3.out" },
+          "-=0.4",
+        )
+        .from(
+          ".hero-greeting",
+          { x: -60, opacity: 0, duration: 0.8, ease: "power3.out" },
+          "-=0.3",
+        )
+        .from(
+          ".hero-typing",
+          { x: -60, opacity: 0, duration: 0.8, ease: "power3.out" },
+          "-=0.5",
+        )
+        .from(
+          ".hero-desc",
+          { x: -40, opacity: 0, duration: 0.6, ease: "power3.out" },
+          "-=0.4",
+        )
+        .from(
+          ".hero-btn",
+          { x: -30, opacity: 0, duration: 0.5, ease: "power3.out" },
+          "-=0.3",
+        )
+        .from(
+          ".hero-portfolio-text",
+          { opacity: 0, duration: 1, ease: "power2.out" },
+          "-=0.6",
+        )
+        .from(
+          ".hero-bubble",
+          { scale: 0.7, opacity: 0, duration: 1, ease: "elastic.out(1,0.6)" },
+          "-=0.8",
+        )
+        .from(
+          ".hero-image",
+          { y: 60, opacity: 0, duration: 0.9, ease: "power3.out" },
+          "-=0.6",
+        )
+        .from(
+          ".hero-star-1",
+          { scale: 0, rotate: -90, duration: 0.5, ease: "back.out(2)" },
+          "-=0.5",
+        )
+        .from(
+          ".hero-star-2",
+          { scale: 0, rotate: 90, duration: 0.5, ease: "back.out(2)" },
+          "-=0.3",
+        )
+        .from(
+          ".hero-socials",
+          { y: 30, opacity: 0, duration: 0.5, ease: "power3.out" },
+          "-=0.3",
+        );
 
-    // Bubble floating animation
-    gsap.to(".hero-bubble", {
-      y: -18,
-      duration: 3.2,
-      ease: "sine.inOut",
-      yoyo: true,
-      repeat: -1,
-    });
+      // Bubble floating animation
+      gsap.to(".hero-bubble", {
+        y: -18,
+        duration: 3.2,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+      });
 
-    // Stars pulsing
-    gsap.to(".hero-star-1", {
-      scale: 1.15,
-      duration: 1.8,
-      ease: "sine.inOut",
-      yoyo: true,
-      repeat: -1,
-    });
-    gsap.to(".hero-star-2", {
-      scale: 1.1,
-      duration: 2.2,
-      ease: "sine.inOut",
-      yoyo: true,
-      repeat: -1,
-      delay: 0.5,
-    });
-  }, { scope: container });
+      // Stars pulsing
+      gsap.to(".hero-star-1", {
+        scale: 1.15,
+        duration: 1.8,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+      });
+      gsap.to(".hero-star-2", {
+        scale: 1.1,
+        duration: 2.2,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: 0.5,
+      });
+    },
+    { scope: container },
+  );
 
   return (
     <>
@@ -198,7 +261,7 @@ const Hero = () => {
           background: #6C081F;
           min-height: 90vh;
           position: relative;
-          overflow: hidden;
+          overflow: visible;
           display: flex;
           flex-direction: column;
         }
@@ -407,14 +470,12 @@ const Hero = () => {
           z-index: 2;
         }
 
-        /* Hero image */
-        .hero-image-wrap {
+      .hero-image-wrap {
           position: absolute;
-          left: clamp(0px, 2vw, 30px);
-          bottom: 0;
+          right: 18%;
+          bottom: clamp(-60px, -5vw, -20px);
           z-index: 3;
           width: clamp(220px, 34.3vw, 659px);
-          /* aspect-ratio 69/68 */
           aspect-ratio: 69 / 68;
         }
 
@@ -544,24 +605,35 @@ const Hero = () => {
 
       {/* ── Mobile nav drawer ── */}
       {mobileOpen && (
-        <div className="mobile-menu">
-          <button className="mobile-close" onClick={() => setMobileOpen(false)}>
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <path d="M4 4L24 24M24 4L4 24" stroke="#F2DDDC" strokeWidth="2.5" strokeLinecap="round" />
+        <div className='mobile-menu'>
+          <button className='mobile-close' onClick={() => setMobileOpen(false)}>
+            <svg width='28' height='28' viewBox='0 0 28 28' fill='none'>
+              <path
+                d='M4 4L24 24M24 4L4 24'
+                stroke='#F2DDDC'
+                strokeWidth='2.5'
+                strokeLinecap='round'
+              />
             </svg>
           </button>
           {NAV_LINKS.map((link) => (
             <a
               key={link.id}
               href={`#${link.id}`}
-              onClick={() => { scrollTo(link.id); setMobileOpen(false); }}
+              onClick={() => {
+                scrollTo(link.id);
+                setMobileOpen(false);
+              }}
             >
               {link.label}
             </a>
           ))}
           <a
-            href="#contact"
-            onClick={() => { scrollTo("contact"); setMobileOpen(false); }}
+            href='#contact'
+            onClick={() => {
+              scrollTo("contact");
+              setMobileOpen(false);
+            }}
             style={{ color: "#F2AEBD" }}
           >
             Contact Me
@@ -569,27 +641,32 @@ const Hero = () => {
         </div>
       )}
 
-      <section id="home" ref={container}>
-
+      <section id='home' ref={container}>
         {/* ── Navbar ── */}
-        <nav className="hero-navbar">
-          <div className="hero-logo">SHERIN PAUL</div>
+        <nav className='hero-navbar'>
+          <div className='hero-logo'>SHERIN PAUL</div>
 
           {/* Desktop nav */}
-          <div className="hero-nav">
+          <div className='hero-nav'>
             {NAV_LINKS.map((link) => (
               <a
                 key={link.id}
                 href={`#${link.id}`}
-                onClick={(e) => { e.preventDefault(); scrollTo(link.id); }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo(link.id);
+                }}
               >
                 {link.label}
               </a>
             ))}
             <a
-              href="#contact"
-              className="hero-nav-cta"
-              onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}
+              href='#contact'
+              className='hero-nav-cta'
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo("contact");
+              }}
             >
               Contact Me
             </a>
@@ -597,92 +674,93 @@ const Hero = () => {
 
           {/* Hamburger (mobile) */}
           <button
-            className="hero-hamburger"
+            className='hero-hamburger'
             style={{ display: "none", background: "none", border: "none" }}
             onClick={() => setMobileOpen(true)}
-            aria-label="Open menu"
+            aria-label='Open menu'
           >
             <HamburgerIcon open={false} />
           </button>
         </nav>
 
         {/* ── Hero Body ── */}
-        <div className="hero-body">
-
+        <div className='hero-body'>
           {/* Left */}
-          <div className="hero-left">
-            <h1 className="hero-greeting">
+          <div className='hero-left'>
+            <h1 className='hero-greeting'>
               HI, I'M <span>SHERIN</span>
             </h1>
-            <div className="hero-typing" ref={typingRef}>
+            <div className='hero-typing' ref={typingRef}>
               {displayed}
-              <span className="hero-cursor" />
+              <span className='hero-cursor' />
             </div>
-            <p className="hero-desc">
-              I create modern, scalable digital products from frontend interfaces to backend systems.
+            <p className='hero-desc'>
+              I create modern, scalable digital products from frontend
+              interfaces to backend systems.
             </p>
             <a
-              className="hero-btn"
-              href="#work"
-              onClick={(e) => { e.preventDefault(); scrollTo("work"); }}
+              className='hero-btn'
+              href='#work'
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo("work");
+              }}
             >
               View Selected Work
             </a>
           </div>
 
           {/* Right */}
-          <div className="hero-right">
-
+          <div className='hero-right'>
             {/* PORTFOLIO bg text */}
-            <div className="hero-portfolio-text">
-              <span className="portfolio-word">PORTFOLIO</span>
-              <span className="portfolio-word">PORTFOLIO</span>
-              <span className="portfolio-word">PORTFOLIO</span>
+            <div className='hero-portfolio-text'>
+              <span className='portfolio-word'>PORTFOLIO</span>
+              <span className='portfolio-word'>PORTFOLIO</span>
+              <span className='portfolio-word'>PORTFOLIO</span>
             </div>
 
             {/* Stars */}
-            <div className="hero-star-1">
+            <div className='hero-star-1'>
               <Star size={42} />
             </div>
-            <div className="hero-star-2">
+            <div className='hero-star-2'>
               <Star size={28} />
             </div>
 
             {/* 3D Bubble */}
-            <div className="hero-bubble-wrap hero-bubble">
+            <div className='hero-bubble-wrap hero-bubble'>
               <Bubble />
             </div>
 
             {/* Hero Image */}
-            <div className="hero-image-wrap">
+            <div className='hero-image-wrap'>
               <img
                 src={heroImg}
-                alt="Sherin Paul"
-                className="hero-image"
-                draggable="false"
+                alt='Sherin Paul'
+                className='hero-image'
+                draggable='false'
               />
             </div>
 
             {/* Social icons */}
-            <div className="hero-socials">
+            <div className='hero-socials'>
               <a
-                href="https://github.com/stwhello"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
+                href='https://github.com/stwhello'
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='GitHub'
               >
-                <img src={githubIcon} alt="GitHub" />
+                <img src={githubIcon} alt='GitHub' />
               </a>
               <a
-                href="https://www.linkedin.com/in/sherinann"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
+                href='https://www.linkedin.com/in/sherinann'
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='LinkedIn'
               >
-                <img src={linkedinIcon} alt="LinkedIn" />
+                <img src={linkedinIcon} alt='LinkedIn' />
               </a>
             </div>
-
           </div>
         </div>
       </section>
