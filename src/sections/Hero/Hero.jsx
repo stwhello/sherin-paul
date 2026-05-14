@@ -769,13 +769,54 @@ const Hero = () => {
 }
 
         @media (max-width: 480px) {
-          .hero-greeting { font-size: 10.5vw; line-height: 12.5vw; }
-          .hero-typing { font-size: 10.5vw; line-height: 12.5vw; min-height: 12.5vw; }
-          .hero-cursor { height: 9vw; }
-          .hero-right { height: 72vw; }
-          .hero-bubble-wrap { width: 66vw; height: 66vw; }
-          .hero-image-wrap { width: 62vw; }
-        }
+  .hero-greeting {
+    font-size: 10.5vw;
+    line-height: 12.5vw;
+  }
+
+  .hero-typing {
+    font-size: 10.5vw;
+    line-height: 12.5vw;
+    min-height: 12.5vw;
+  }
+
+  .hero-cursor {
+    height: 9vw;
+  }
+
+  /* More room for bigger image/blob */
+  .hero-right {
+    height: 90vw;
+  }
+
+  /* Bigger bubble */
+  .hero-bubble-wrap {
+    width: 88vw;
+    height: 88vw;
+    bottom: -5vw;
+  }
+
+  /* Bigger hero image */
+  .hero-image-wrap {
+    width: 95vw;
+    bottom: -25px;
+  }
+
+  /* Smaller socials at right-bottom */
+  .hero-socials {
+    position: absolute;
+    right: 0px;
+    bottom: -20px;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 0;
+  }
+
+  .hero-socials a {
+    width: 26px;
+    height: 26px;
+  }
+}
       `}</style>
 
       {/* ── Mobile nav drawer ── */}
@@ -783,18 +824,35 @@ const Hero = () => {
         <div className='mobile-menu'>
           <button className='mobile-close' onClick={() => setMobileOpen(false)}>
             <svg width='14' height='14' viewBox='0 0 28 28' fill='none'>
-              <path d='M4 4L24 24M24 4L4 24' stroke='#F2DDDC' strokeWidth='2.5' strokeLinecap='round' />
+              <path
+                d='M4 4L24 24M24 4L4 24'
+                stroke='#F2DDDC'
+                strokeWidth='2.5'
+                strokeLinecap='round'
+              />
             </svg>
           </button>
           {NAV_LINKS.map((link) => (
-            <a key={link.id} href={`#${link.id}`}
-              onClick={() => { scrollTo(link.id); setMobileOpen(false); }}>
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={() => {
+                scrollTo(link.id);
+                setMobileOpen(false);
+              }}
+            >
               {link.label}
             </a>
           ))}
           <div className='mobile-menu-divider' />
-          <a href='#contact' className='mobile-menu-cta'
-            onClick={() => { scrollTo("contact"); setMobileOpen(false); }}>
+          <a
+            href='#contact'
+            className='mobile-menu-cta'
+            onClick={() => {
+              scrollTo("contact");
+              setMobileOpen(false);
+            }}
+          >
             Contact Me
           </a>
         </div>
@@ -903,10 +961,20 @@ const Hero = () => {
 
             {/* Social icons */}
             <div className='hero-socials'>
-              <a href='https://github.com/stwhello' target='_blank' rel='noopener noreferrer' aria-label='GitHub'>
+              <a
+                href='https://github.com/stwhello'
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='GitHub'
+              >
                 <img src={githubIcon} alt='GitHub' />
               </a>
-              <a href='https://www.linkedin.com/in/sherinann' target='_blank' rel='noopener noreferrer' aria-label='LinkedIn'>
+              <a
+                href='https://www.linkedin.com/in/sherinann'
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='LinkedIn'
+              >
                 <img src={linkedinIcon} alt='LinkedIn' />
               </a>
             </div>
