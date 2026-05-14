@@ -705,6 +705,69 @@ const Hero = () => {
           .hero-socials a { width: 44px; height: 44px; }
         }
 
+        /* ── Large desktop (1920x1080+) only ── */
+@media (min-width: 1920px) {
+
+  .hero-body{
+    padding: 0 100px;
+  }
+
+  .hero-greeting{
+    font-size: 90px;
+    line-height: 125px;
+  }
+
+  .hero-typing{
+    font-size: 100px;
+    line-height: 125px;
+    min-height: 125px;
+  }
+
+  .hero-desc{
+    max-width: 650px;
+    font-size: 22px;
+  }
+
+  .hero-btn{
+    padding: 16px 52px;
+    font-size: 18px;
+  }
+
+  .portfolio-word{
+    font-size: 220px;
+    letter-spacing: 16px;
+  }
+
+  .hero-bubble-wrap{
+    width: 680px;
+    height: 680px;
+    right: 24%;
+  }
+
+  .hero-image-wrap{
+    width: 780px;
+    right: 22%;
+    bottom: -40px;
+  }
+
+  .hero-socials{
+    right: 100px;
+    bottom: 60px;
+  }
+
+  .hero-star-1{
+    left: 90px;
+    top: 140px;
+    transform: scale(1.4);
+  }
+
+  .hero-star-2{
+    left: 120px;
+    top: 240px;
+    transform: scale(1.3);
+  }
+}
+
         @media (max-width: 480px) {
           .hero-greeting { font-size: 10.5vw; line-height: 12.5vw; }
           .hero-typing { font-size: 10.5vw; line-height: 12.5vw; min-height: 12.5vw; }
