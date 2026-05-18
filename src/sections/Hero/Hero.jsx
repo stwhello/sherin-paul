@@ -22,7 +22,6 @@ const NAV_LINKS = [
   { label: "Selected Work", id: "selected-work" },
   { label: "Client Work", id: "client-work" },
   { label: "What I Build", id: "what-i-build" },
-  { label: "Contact", id: "contact" },
 ];
 
 const scrollTo = (id) => {
@@ -244,49 +243,52 @@ const Hero = () => {
           cursor: default;
         }
 
-        .hero-nav {
-          display: flex;
-          align-items: center;
-          gap: clamp(6px, 1.2vw, 20px);
-          background: rgba(255,255,255,0.08);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(242,221,220,0.15);
-          border-radius: 14px;
-          padding: clamp(8px, 0.8vw, 14px) clamp(10px, 1.2vw, 20px);
-        }
+       .hero-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 20px);
 
-        .hero-nav a {
-          font-family: "Lato", sans-serif;
-          font-size: clamp(12px, 0.9vw, 16px);
-          color: #F2DDDC;
-          text-decoration: none;
-          padding: clamp(4px, 0.4vw, 8px) clamp(6px, 0.7vw, 14px);
-          border-radius: 8px;
-          transition: background 0.2s ease, color 0.2s ease;
-          white-space: nowrap;
-        }
+  border-radius: 10px;
+  background: rgba(242, 221, 220, 0.40);
 
-        .hero-nav a:hover {
-          background: rgba(242,221,220,0.12);
-        }
+  backdrop-filter: blur(10px);
+  padding: clamp(8px, 0.8vw, 14px)
+    clamp(10px, 1.2vw, 20px);
+}
 
-        .hero-nav-cta {
-          font-family: "Lato", sans-serif;
-          font-size: clamp(12px, 0.9vw, 16px);
-          background: rgba(242,174,189,0.25);
-          border: 1px solid rgba(242,174,189,0.5);
-          color: #F2DDDC !important;
-          border-radius: 10px !important;
-          padding: clamp(6px, 0.6vw, 10px) clamp(12px, 1.2vw, 22px) !important;
-          cursor: pointer;
-          transition: background 0.25s ease !important;
-          white-space: nowrap;
-        }
+.hero-nav a {
+  font-family: "Lato", sans-serif;
+  font-size: clamp(12px, 0.9vw, 16px);
+  color: #FFF;
+  text-decoration: none;
+  padding: clamp(4px, 0.4vw, 8px)
+    clamp(6px, 0.7vw, 14px);
+  border-radius: 8px;
+  transition: 0.3s ease;
+  white-space: nowrap;
+}
 
-        .hero-nav-cta:hover {
-          background: rgba(242,174,189,0.45) !important;
-        }
+.hero-nav a:hover {
+  background: rgba(255,255,255,0.25);
+}
 
+.hero-nav-cta {
+  border-radius: 10px !important;
+  background: #F2AEBD;
+
+  color: #6C081F !important;
+  font-weight: 600;
+
+  padding: clamp(6px, 0.6vw, 10px)
+    clamp(12px, 1.2vw, 22px) !important;
+
+  transition: 0.3s ease !important;
+}
+
+.hero-nav-cta:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
         /* ── Hero body ── */
         .hero-body {
           flex: 1;
