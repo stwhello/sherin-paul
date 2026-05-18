@@ -18,10 +18,10 @@ const TITLES = [
 const NAV_LINKS = [
   { label: "Home", id: "home" },
   { label: "About", id: "about" },
-  { label: "What I Do", id: "what-i-do" },
+  { label: "Services", id: "what-i-do" },
   { label: "Selected Work", id: "selected-work" },
   { label: "Client Work", id: "client-work" },
-  { label: "What I Build", id: "what-i-build" },
+  { label: "Tech Stack", id: "what-i-build" },
 ];
 
 const scrollTo = (id) => {
