@@ -10,12 +10,12 @@ const MainLayout = () => {
   return (
     <>
       <Hero />
-      <About />
-      <WhatIDo />
-      <SelectedWork />
-      <ClientWork />
-      <WhatIBuild />
-      <Contact />
+      <About id="about"/>
+      <WhatIDo id="what-i-do"/>
+      <SelectedWork id="selected-work"/>
+      <ClientWork id="client-work"/>
+      <WhatIBuild id="what-i-build"/>
+      <Contact id="contact"/>
     </>
   );
 };
