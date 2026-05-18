@@ -26,7 +26,13 @@ const NAV_LINKS = [
 
 const scrollTo = (id) => {
   const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
+
+  if (el) {
+    window.scrollTo({
+      top: el.offsetTop - 40,
+      behavior: "smooth",
+    });
+  }
 };
 
 // ─── Amoeba shape ────────────────────────────────────────────────────────────
