@@ -17,11 +17,12 @@ const TITLES = [
 // ─── Nav links (single-page scroll) ─────────────────────────────────────────
 const NAV_LINKS = [
   { label: "Home", id: "home" },
-  { label: "About me", id: "about" },
-  { label: "Services", id: "services" },
-  { label: "Work", id: "work" },
-  { label: "Skills", id: "skills" },
-  { label: "Resume", id: "resume" },
+  { label: "About", id: "about" },
+  { label: "What I Do", id: "what-i-do" },
+  { label: "Selected Work", id: "selected-work" },
+  { label: "Client Work", id: "client-work" },
+  { label: "What I Build", id: "what-i-build" },
+  { label: "Contact", id: "contact" },
 ];
 
 const scrollTo = (id) => {
