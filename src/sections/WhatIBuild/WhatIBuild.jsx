@@ -309,8 +309,6 @@ const WhatIBuild = () => {
               width: "clamp(120px, 28vw, 458px)",
               aspectRatio: "100/81",
               borderRadius: "12px",
-              background: "rgba(0,0,0,0.08)",
-              boxShadow: "0 4px 4px 0 rgba(0,0,0,0.25)",
               overflow: "hidden",
             }}
           >
@@ -352,8 +350,6 @@ const WhatIBuild = () => {
                 width: "clamp(80px, 12vw, 249px)",
                 aspectRatio: "83/58",
                 borderRadius: "10px",
-                background: "rgba(0,0,0,0.08)",
-                boxShadow: "0 4px 4px 0 rgba(0,0,0,0.25)",
                 overflow: "hidden",
               }}
             >
@@ -473,8 +469,6 @@ const WhatIBuild = () => {
                 width: "clamp(80px, 13vw, 262px)",
                 aspectRatio: "207/143",
                 borderRadius: "10px",
-                background: "rgba(0,0,0,0.08)",
-                boxShadow: "0 4px 4px 0 rgba(0,0,0,0.25)",
                 overflow: "hidden",
                 alignSelf: "flex-end",
               }}
