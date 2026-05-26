@@ -10,12 +10,17 @@ const MainLayout = () => {
   return (
     <>
       <Hero />
+      <section id="about">
+        <About />
+      </section>
+
+
       <section id="selected-work">
         <SelectedWork />
       </section>
 
-      <section id="about">
-        <About />
+      <section id="client-work">
+        <ClientWork />
       </section>
 
       <section id="what-i-do">
@@ -23,9 +28,6 @@ const MainLayout = () => {
       </section>
 
 
-      <section id="client-work">
-        <ClientWork />
-      </section>
 
       <section id="what-i-build">
         <WhatIBuild />
