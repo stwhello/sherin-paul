@@ -162,7 +162,7 @@ const ClientWork = () => {
         ref={sectionRef}
         style={{
           paddingTop: "clamp(50px, 7vw, 140px)",
-          paddingBottom: "clamp(50px, 7vw, 140px)",
+          paddingBottom: "clamp(30px, 4vw, 80px)",
         }}
       >
         <div
