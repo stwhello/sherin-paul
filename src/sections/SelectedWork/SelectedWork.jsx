@@ -92,7 +92,7 @@ const SelectedWork = () => {
   const project = projects[index];
 
   return (
-    <section ref={container} className="container-page px-4 sm:px-6 lg:px-0">
+    <section ref={container} className="container-page px-4 sm:px-6 lg:px-0 mt-26">
       
       <div className="text-center">
         <h2 className="heading-font text-[#6C081F] text-[clamp(32px,4vw,80px)]">
