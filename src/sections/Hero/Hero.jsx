@@ -18,9 +18,9 @@ const TITLES = [
 const NAV_LINKS = [
   { label: "Home", id: "home" },
   { label: "About", id: "about" },
-  { label: "Services", id: "what-i-do" },
   { label: "Selected Work", id: "selected-work" },
   { label: "Client Work", id: "client-work" },
+  { label: "Services", id: "what-i-do" },
   { label: "Tech Stack", id: "what-i-build" },
 ];
 
