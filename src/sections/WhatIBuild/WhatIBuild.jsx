@@ -206,50 +206,87 @@ const WhatIBuild = () => {
         }
 
         /* ── MOBILE: horizontal scroll ── */
-        @media (max-width: 700px) {
-          .wib-grid {
-            display: flex;
-            flex-direction: row;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            gap: clamp(12px, 4vw, 20px);
-            padding-bottom: 12px;
-          }
-          /* hide scrollbar but keep scroll */
-          .wib-grid::-webkit-scrollbar { display: none; }
-          .wib-grid { scrollbar-width: none; }
+       @media (max-width: 700px) {
 
-          /* each card becomes a fixed-width snap item */
-          .wib-card-frontend,
-          .wib-card-backend {
-            flex: 0 0 78vw;
-            scroll-snap-align: start;
-            grid-column: unset;
-            grid-row: unset;
-          }
+  .wib-grid {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: clamp(12px, 4vw, 20px);
+    padding-bottom: 12px;
+  }
 
-          /* bottom row: two cards side by side as individual snap items */
-          .wib-bottom-row {
-            display: contents;
-          }
-          .wib-bottom-row .wib-card {
-            flex: 0 0 78vw;
-            scroll-snap-align: start;
-          }
+  /* Hide scrollbar */
+  .wib-grid::-webkit-scrollbar {
+    display: none;
+  }
 
-          /* backend stacks vertically on mobile */
-          .wib-backend-inner {
-            flex-direction: column;
-            align-items: flex-start;
-          }
-          .wib-backend-img { width: 100%; }
+  .wib-grid {
+    scrollbar-width: none;
+  }
 
-          .wib-title { font-size: clamp(20px, 5.5vw, 30px); }
-          .wib-list li { font-size: clamp(13px, 3.8vw, 16px); }
-          .wib-ecom-img,
-          .wib-perf-img { width: clamp(100px, 28vw, 180px); }
-        }
+  /* All cards */
+  .wib-card-frontend,
+  .wib-card-backend,
+  .wib-bottom-row .wib-card {
+    flex: 0 0 78vw;
+    scroll-snap-align: start;
+    grid-column: unset;
+    grid-row: unset;
+    min-height: 420px;
+  }
+
+  /* Bottom row behaves like individual cards */
+  .wib-bottom-row {
+    display: contents;
+  }
+
+  /* Backend stacks vertically */
+  .wib-backend-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+  }
+
+  .wib-backend-img {
+    width: 100%;
+    margin-top: auto;
+  }
+
+  /* Better spacing for smaller cards */
+  .wib-ecom-inner,
+  .wib-perf-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Images balanced at bottom */
+  .wib-ecom-img,
+  .wib-perf-img {
+    width: clamp(200px, 32vw, 280px);
+    align-self: center;
+    margin-top: 24px;
+  }
+
+  /* Typography */
+  .wib-title {
+    font-size: clamp(20px, 5.5vw, 30px);
+    line-height: 1.1;
+  }
+
+  .wib-list {
+    gap: 10px;
+  }
+
+  .wib-list li {
+    font-size: clamp(13px, 3.8vw, 16px);
+    line-height: 1.5;
+  }
+}
       `}</style>
 
       <div className='text-center'>
