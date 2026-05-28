@@ -16,431 +16,290 @@ const Contact = () => {
       },
     });
 
-    tl.from(".contact-card", {
-      y: 80,
+    tl.from(".contact-heading", {
+      y: -50,
       opacity: 0,
-      duration: 0.9,
+      duration: 0.8,
       ease: "power3.out",
     })
       .from(
-        ".contact-heading",
-        {
-          y: -40,
-          opacity: 0,
-          duration: 0.7,
-          ease: "power3.out",
-        },
-        "-=0.5"
-      )
-      .from(
-        ".contact-info-item",
-        {
-          x: -40,
-          opacity: 0,
-          stagger: 0.12,
-          duration: 0.5,
-          ease: "power3.out",
-        },
+        ".contact-left",
+        { x: -60, opacity: 0, duration: 0.7, ease: "power3.out" },
         "-=0.4"
       )
       .from(
         ".contact-blob",
         {
-          scale: 0.8,
+          scale: 0.7,
           opacity: 0,
-          stagger: 0.15,
           duration: 0.6,
+          stagger: 0.15,
           ease: "back.out(1.7)",
         },
-        "-=0.5"
+        "-=0.4"
       )
       .from(
         ".contact-star",
-        {
-          scale: 0,
-          rotate: -90,
-          duration: 0.5,
-          ease: "back.out(2)",
-        },
-        "-=0.5"
+        { scale: 0, opacity: 0, rotation: -90, duration: 0.5, ease: "back.out(2)" },
+        "-=0.6"
       );
   });
 
   return (
     <section
-      id="contact"
       ref={container}
       className="container-page"
       style={{
-        paddingTop: "clamp(40px,5vw,100px)",
-        paddingBottom: "clamp(40px,5vw,100px)",
+        paddingTop: "clamp(40px, 6vw, 120px)",
+        paddingBottom: "clamp(40px, 6vw, 120px)",
       }}
     >
       <style>{`
         .contact-card {
           position: relative;
-          width: 100%;
           background: #FDD0DA;
-          border: clamp(4px,0.4vw,8px) solid #6C081F;
-          border-radius: clamp(26px,2.5vw,50px);
-          padding:
-            clamp(40px,5vw,90px)
-            clamp(24px,5vw,80px);
-
+          border-radius: clamp(18px, 2vw, 36px);
+          border: clamp(4px, 0.4vw, 8px) solid #6C081F;
+          padding: clamp(28px, 4vw, 72px) clamp(28px, 5vw, 90px);
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: clamp(24px, 4vw, 60px);
           overflow: hidden;
         }
 
+        /* scattered stroke border texture — just the SVG bg */
+        .contact-card::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          z-index: 0;
+        }
+
         .contact-inner {
+          position: relative;
+          z-index: 1;
+          width: 100%;
           display: flex;
-          justify-content: space-between;
+          flex-direction: row;
           align-items: center;
-          gap: clamp(40px,5vw,100px);
+          justify-content: space-between;
+          gap: clamp(24px, 4vw, 60px);
         }
 
-        /* ───────── LEFT ───────── */
-
+        /* ── Left ── */
         .contact-left {
-          flex: 1;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          gap: clamp(20px, 3vw, 48px);
+          flex-shrink: 0;
         }
 
-        .contact-heading {
-          text-align: center;
-          margin-bottom: clamp(40px,5vw,70px);
-        }
-
-        .contact-script {
-          display: block;
-          color: #6C081F;
-          font-family: "Parisienne", cursive;
-          font-size: clamp(36px,4vw,64px);
-          font-weight: 400;
-          line-height: 1;
-        }
-
-        .contact-bold {
-          display: block;
-          color: #6C081F;
-          font-family: "Bebas Neue", sans-serif;
-          font-size: clamp(64px,8vw,128px);
-          font-weight: 400;
-          line-height: 0.9;
-        }
-
-        .contact-info {
-          display: flex;
-          flex-direction: column;
-          gap: clamp(30px,4vw,60px);
-        }
-
-        .contact-info-item {
-          display: flex;
-          flex-direction: column;
+        .contact-info-item a {
+          text-decoration: none;
         }
 
         .contact-label {
-          color: #6C081F;
           font-family: "Parisienne", cursive;
-          font-size: clamp(28px,3vw,48px);
+          color: #6C081F;
+          font-size: clamp(22px, 2.8vw, 48px);
           font-weight: 400;
-          line-height: 1;
+          line-height: 1.2;
+          display: block;
         }
 
         .contact-value {
-          color: #1E1E1E;
           font-family: "Bebas Neue", sans-serif;
-          font-size: clamp(22px,2.5vw,40px);
+          color: #1E1E1E;
+          font-size: clamp(16px, 2vw, 36px);
           font-weight: 400;
-          line-height: 1.2;
-          text-decoration: none;
-          transition: 0.25s ease;
-          word-break: break-word;
+          line-height: 1.25;
+          display: block;
+          transition: color 0.2s ease;
         }
 
         .contact-value:hover {
           color: #6C081F;
         }
 
-        .contact-link {
-          text-decoration: none;
-          width: fit-content;
-        }
-
-        /* ───────── RIGHT ───────── */
-
-        .contact-right {
-          flex: 1;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-        }
-
-        .blob-stack {
-          position: relative;
-          width: clamp(280px,32vw,520px);
-          height: clamp(380px,38vw,620px);
-        }
-
-        .contact-blob {
-          position: absolute;
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
+        /* ── Heading ── */
+        .contact-heading {
           text-align: center;
-
-          color: #1E1E1E;
-          font-family: "Lato", sans-serif;
-          font-size: clamp(18px,1.8vw,32px);
-          font-weight: 700;
-          line-height: 1.25;
-
-          padding: 20px;
+          margin-bottom: clamp(24px, 3vw, 56px);
         }
 
-        .blob-1 {
-          width: clamp(240px,26vw,427px);
-          height: clamp(100px,10vw,170px);
-
-          border-radius: 999px;
-          background: #FEDE6F;
-
-          transform: rotate(5.835deg);
-
-          top: 0;
-          right: 0;
-
-          z-index: 3;
+        .contact-script {
+          font-family: "Parisienne", cursive;
+          color: #6C081F;
+          font-size: clamp(28px, 3.8vw, 64px);
+          font-weight: 400;
+          line-height: 1.2;
+          display: block;
         }
 
-        .blob-2 {
-          width: clamp(250px,27vw,442px);
-          height: clamp(110px,10vw,174px);
-
-          background: #C5B2E9;
-
-          transform: rotate(-3.095deg);
-
-          top: 140px;
-          right: 10px;
-
-          z-index: 2;
+        .contact-bold {
+          font-family: "Bebas Neue", sans-serif;
+          color: #6C081F;
+          font-size: clamp(48px, 7.5vw, 128px);
+          font-weight: 400;
+          line-height: clamp(48px, 7.5vw, 120px);
+          display: block;
         }
 
-        .blob-3 {
-          width: clamp(240px,26vw,427px);
-          height: clamp(120px,11vw,190px);
-
-          border-radius: 999px;
-          background: #F581A4;
-
-          transform: rotate(5.835deg);
-
-          bottom: 0;
-          right: 20px;
-
-          z-index: 1;
+        /* ── Right blobs ── */
+        .contact-right {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0;
+          flex: 1;
+          min-width: 0;
         }
 
         .contact-star {
           position: absolute;
-
-          width: clamp(55px,5vw,100px);
-          height: clamp(55px,5vw,100px);
-
-          top: clamp(10px,1vw,20px);
-          left: clamp(0px,2vw,30px);
-
+          top: clamp(-30px, -3vw, -50px);
+          left: clamp(-10px, -1.5vw, -20px);
+          width: clamp(44px, 5.5vw, 100px);
+          height: clamp(44px, 5.5vw, 100px);
           z-index: 10;
         }
 
-        /* ───────── MOBILE ───────── */
-
-        @media (max-width: 900px) {
-
-          .contact-card {
-            padding:
-              clamp(28px,8vw,50px)
-              clamp(20px,6vw,36px);
-          }
-
-          .contact-inner {
-            flex-direction: column;
-            align-items: center;
-            gap: 70px;
-          }
-
-          .contact-left {
-            width: 100%;
-            align-items: center;
-            text-align: center;
-          }
-
-          .contact-heading {
-            margin-bottom: 40px;
-          }
-
-          .contact-info {
-            width: 100%;
-            gap: 36px;
-          }
-
-          .contact-link {
-            width: 100%;
-          }
-
-          .contact-value {
-            font-size: clamp(22px,6vw,34px);
-          }
-
-          .blob-stack {
-            width: min(90vw, 420px);
-            height: 430px;
-          }
-
-          .blob-1 {
-            top: 0;
-            right: 0;
-          }
-
-          .blob-2 {
-            top: 120px;
-            right: 0;
-          }
-
-          .blob-3 {
-            bottom: 0;
-            right: 0;
-          }
-
-          .contact-star {
-            left: -10px;
-            top: 10px;
-          }
+        /* blob wrapper keeps overlap */
+        .blob-stack {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: clamp(-30px, -3vw, -40px);
+          width: 100%;
+          position: relative;
         }
 
-        @media (max-width: 560px) {
+        .contact-blob {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          font-family: "Lato", sans-serif;
+          font-size: clamp(14px, 1.6vw, 32px);
+          font-weight: 700;
+          color: #1E1E1E;
+          line-height: 1.35;
+          width: clamp(200px, 26vw, 427px);
+          padding: clamp(24px, 3vw, 52px) clamp(20px, 2.5vw, 40px);
+          position: relative;
+        }
 
-          .contact-card {
-            border-width: 4px;
-            border-radius: 28px;
+        .blob-1 {
+          height: clamp(80px, 10vw, 170px);
+          border-radius: 50%;
+          background: #FEDE6F;
+          transform: rotate(5.835deg);
+          z-index: 3;
+        }
+
+        .blob-2 {
+          height: clamp(80px, 10vw, 174px);
+          border-radius: clamp(10px, 1vw, 18px);
+          background: #C5B2E9;
+          transform: rotate(-3.095deg);
+          margin-top: clamp(-20px, -2.5vw, -36px);
+          z-index: 2;
+        }
+
+        .blob-3 {
+          height: clamp(90px, 11vw, 190px);
+          border-radius: 50%;
+          background: #F581A4;
+          transform: rotate(5.835deg);
+          margin-top: clamp(-20px, -2.5vw, -36px);
+          z-index: 1;
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 700px) {
+          .contact-inner {
+            flex-direction: column;
+            align-items: flex-start;
           }
 
-          .contact-script {
-            font-size: 38px;
-          }
-
-          .contact-bold {
-            font-size: 72px;
-          }
-
-          .contact-label {
-            font-size: 34px;
-          }
-
-          .contact-value {
-            font-size: 24px;
-            line-height: 1.1;
-          }
-
-          .blob-stack {
+          .contact-right {
             width: 100%;
-            height: 360px;
+            align-items: center;
           }
 
           .contact-blob {
-            font-size: 20px;
+            width: clamp(240px, 80vw, 360px);
+            font-size: clamp(14px, 4vw, 20px);
           }
 
-          .blob-1 {
-            width: 250px;
-            height: 100px;
+          .blob-1, .blob-2, .blob-3 {
+            height: clamp(70px, 18vw, 120px);
           }
 
-          .blob-2 {
-            width: 260px;
-            height: 110px;
-            top: 105px;
+          .contact-script {
+            font-size: clamp(24px, 7vw, 40px);
           }
 
-          .blob-3 {
-            width: 250px;
-            height: 110px;
+          .contact-bold {
+            font-size: clamp(44px, 13vw, 80px);
+            line-height: 1;
           }
 
-          .contact-star {
-            width: 60px;
-            height: 60px;
-            left: 0;
+          .contact-label {
+            font-size: clamp(20px, 5.5vw, 32px);
+          }
+
+          .contact-value {
+            font-size: clamp(14px, 4vw, 22px);
           }
         }
       `}</style>
 
-      <div className="contact-card">
+      {/* Heading outside card */}
+      <div className="contact-heading">
+        <span className="contact-script">Let's Work</span>
+        <span className="contact-bold">TOGETHER</span>
+      </div>
 
-        {/* LEFT */}
+      {/* Main card */}
+      <div className="contact-card">
         <div className="contact-inner">
 
+          {/* LEFT — contact info */}
           <div className="contact-left">
-
-            <div className="contact-heading">
-              <span className="contact-script">Let’s Work</span>
-              <span className="contact-bold">TOGETHER</span>
+            <div className="contact-info-item">
+              <span className="contact-label">Phone</span>
+              <a href="tel:+919579245383">
+                <span className="contact-value">+91 95792 45383</span>
+              </a>
             </div>
 
-            <div className="contact-info">
+            <div className="contact-info-item">
+              <span className="contact-label">Email</span>
+              <a href="mailto:sherinpaul2001@gmail.com">
+                <span className="contact-value">sherinpaul2001@gmail.com</span>
+              </a>
+            </div>
 
-              <div className="contact-info-item">
-                <span className="contact-label">Phone</span>
-
-                <a
-                  href="tel:+919579245383"
-                  className="contact-link"
-                >
-                  <span className="contact-value">
-                    +91 95792 45383
-                  </span>
-                </a>
-              </div>
-
-              <div className="contact-info-item">
-                <span className="contact-label">Email</span>
-
-                <a
-                  href="mailto:sherinpaul2001@gmail.com"
-                  className="contact-link"
-                >
-                  <span className="contact-value">
-                    SHERINPAUL2001@GMAIL.COM
-                  </span>
-                </a>
-              </div>
-
-              <div className="contact-info-item">
-                <span className="contact-label">LinkedIn</span>
-
-                <a
-                  href="https://www.linkedin.com/in/sherinann/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contact-link"
-                >
-                  <span className="contact-value">
-                    LINKEDIN.COM/IN/SHERINANN
-                  </span>
-                </a>
-              </div>
-
+            <div className="contact-info-item">
+              <span className="contact-label">LinkedIn</span>
+              <a
+                href="https://www.linkedin.com/in/sherinann/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="contact-value">linkedin.com/in/sherinann</span>
+              </a>
             </div>
           </div>
 
-          {/* RIGHT */}
+          {/* RIGHT — overlapping blobs with star */}
           <div className="contact-right">
-
+            {/* Star overlapping first blob */}
             <svg
               className="contact-star"
               xmlns="http://www.w3.org/2000/svg"
@@ -454,19 +313,15 @@ const Contact = () => {
             </svg>
 
             <div className="blob-stack">
-
               <div className="contact-blob blob-1">
                 Have a project in mind?
               </div>
-
               <div className="contact-blob blob-2">
-                Reach out and let’s make it happen.
+                Reach out and let's make it happen.
               </div>
-
               <div className="contact-blob blob-3">
                 Thank You
               </div>
-
             </div>
           </div>
 
