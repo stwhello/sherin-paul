@@ -16,26 +16,25 @@ const Contact = () => {
       },
     });
 
-    tl.from(".contact-heading", {
-      y: -50,
+    tl.from(".contact-heading-script", {
+      y: -30,
       opacity: 0,
-      duration: 0.8,
+      duration: 0.7,
       ease: "power3.out",
     })
       .from(
+        ".contact-heading-bold",
+        { y: 20, opacity: 0, duration: 0.6, ease: "power3.out" },
+        "-=0.3"
+      )
+      .from(
         ".contact-left",
         { x: -60, opacity: 0, duration: 0.7, ease: "power3.out" },
-        "-=0.4"
+        "-=0.3"
       )
       .from(
         ".contact-blob",
-        {
-          scale: 0.7,
-          opacity: 0,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: "back.out(1.7)",
-        },
+        { scale: 0.7, opacity: 0, duration: 0.6, stagger: 0.15, ease: "back.out(1.7)" },
         "-=0.4"
       )
       .from(
@@ -55,33 +54,69 @@ const Contact = () => {
       }}
     >
       <style>{`
+        /* ── Card — SVG as background border ── */
         .contact-card {
           position: relative;
           background: #FDD0DA;
-          border-radius: clamp(18px, 2vw, 36px);
-          border: clamp(4px, 0.4vw, 8px) solid #6C081F;
+          border-radius: clamp(18px, 2.5vw, 50px);
           padding: clamp(28px, 4vw, 72px) clamp(28px, 5vw, 90px);
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-between;
-          gap: clamp(24px, 4vw, 60px);
           overflow: hidden;
+          /* draw the hand-drawn border via box-shadow + clip */
         }
 
-        /* scattered stroke border texture — just the SVG bg */
-        .contact-card::before {
-          content: "";
+        /* SVG border overlay — sits on top of bg, behind content */
+        .contact-card-svg {
           position: absolute;
           inset: 0;
+          width: 100%;
+          height: 100%;
           pointer-events: none;
           z-index: 0;
         }
 
-        .contact-inner {
+        .contact-card-inner {
           position: relative;
           z-index: 1;
-          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: clamp(24px, 3vw, 52px);
+        }
+
+        /* ── Heading INSIDE card ── */
+        .contact-heading {
+          text-align: center;
+          position: relative;
+          line-height: 1;
+          /* let TOGETHER overlap Let's Work */
+          padding-bottom: clamp(6px, 0.8vw, 14px);
+        }
+
+        .contact-heading-script {
+          font-family: "Parisienne", cursive;
+          color: #6C081F;
+          font-size: clamp(26px, 3.5vw, 64px);
+          font-weight: 400;
+          display: block;
+          line-height: 1.1;
+          position: relative;
+          z-index: 2;
+          /* push slightly down so TOGETHER overlaps it */
+          margin-bottom: clamp(-10px, -1.2vw, -20px);
+        }
+
+        .contact-heading-bold {
+          font-family: "Bebas Neue", sans-serif;
+          color: #6C081F;
+          font-size: clamp(48px, 8vw, 128px);
+          font-weight: 400;
+          display: block;
+          line-height: 0.9;
+          position: relative;
+          z-index: 1;
+        }
+
+        /* ── Main row: left + right ── */
+        .contact-body {
           display: flex;
           flex-direction: row;
           align-items: center;
@@ -93,7 +128,7 @@ const Contact = () => {
         .contact-left {
           display: flex;
           flex-direction: column;
-          gap: clamp(20px, 3vw, 48px);
+          gap: clamp(18px, 2.5vw, 44px);
           flex-shrink: 0;
         }
 
@@ -104,7 +139,7 @@ const Contact = () => {
         .contact-label {
           font-family: "Parisienne", cursive;
           color: #6C081F;
-          font-size: clamp(22px, 2.8vw, 48px);
+          font-size: clamp(20px, 2.5vw, 48px);
           font-weight: 400;
           line-height: 1.2;
           display: block;
@@ -113,7 +148,7 @@ const Contact = () => {
         .contact-value {
           font-family: "Bebas Neue", sans-serif;
           color: #1E1E1E;
-          font-size: clamp(16px, 2vw, 36px);
+          font-size: clamp(14px, 1.8vw, 36px);
           font-weight: 400;
           line-height: 1.25;
           display: block;
@@ -124,57 +159,31 @@ const Contact = () => {
           color: #6C081F;
         }
 
-        /* ── Heading ── */
-        .contact-heading {
-          text-align: center;
-          margin-bottom: clamp(24px, 3vw, 56px);
-        }
-
-        .contact-script {
-          font-family: "Parisienne", cursive;
-          color: #6C081F;
-          font-size: clamp(28px, 3.8vw, 64px);
-          font-weight: 400;
-          line-height: 1.2;
-          display: block;
-        }
-
-        .contact-bold {
-          font-family: "Bebas Neue", sans-serif;
-          color: #6C081F;
-          font-size: clamp(48px, 7.5vw, 128px);
-          font-weight: 400;
-          line-height: clamp(48px, 7.5vw, 120px);
-          display: block;
-        }
-
-        /* ── Right blobs ── */
+        /* ── Right blobs — pushed right ── */
         .contact-right {
           position: relative;
           display: flex;
           flex-direction: column;
-          align-items: center;
-          gap: 0;
+          align-items: flex-end;
           flex: 1;
           min-width: 0;
+          padding-right: clamp(0px, 2vw, 40px);
         }
 
         .contact-star {
           position: absolute;
-          top: clamp(-30px, -3vw, -50px);
-          left: clamp(-10px, -1.5vw, -20px);
-          width: clamp(44px, 5.5vw, 100px);
-          height: clamp(44px, 5.5vw, 100px);
+          top: clamp(-20px, -2.5vw, -44px);
+          left: clamp(-10px, -1vw, -16px);
+          width: clamp(40px, 5.5vw, 100px);
+          height: clamp(40px, 5.5vw, 100px);
           z-index: 10;
         }
 
-        /* blob wrapper keeps overlap */
         .blob-stack {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: clamp(-30px, -3vw, -40px);
-          width: 100%;
+          width: clamp(200px, 28vw, 440px);
           position: relative;
         }
 
@@ -184,17 +193,17 @@ const Contact = () => {
           justify-content: center;
           text-align: center;
           font-family: "Lato", sans-serif;
-          font-size: clamp(14px, 1.6vw, 32px);
+          font-size: clamp(13px, 1.5vw, 28px);
           font-weight: 700;
           color: #1E1E1E;
           line-height: 1.35;
-          width: clamp(200px, 26vw, 427px);
-          padding: clamp(24px, 3vw, 52px) clamp(20px, 2.5vw, 40px);
+          width: 100%;
+          padding: clamp(22px, 2.8vw, 52px) clamp(18px, 2vw, 36px);
           position: relative;
         }
 
         .blob-1 {
-          height: clamp(80px, 10vw, 170px);
+          height: clamp(76px, 9.5vw, 170px);
           border-radius: 50%;
           background: #FEDE6F;
           transform: rotate(5.835deg);
@@ -202,129 +211,156 @@ const Contact = () => {
         }
 
         .blob-2 {
-          height: clamp(80px, 10vw, 174px);
+          height: clamp(76px, 9.5vw, 174px);
           border-radius: clamp(10px, 1vw, 18px);
           background: #C5B2E9;
           transform: rotate(-3.095deg);
-          margin-top: clamp(-20px, -2.5vw, -36px);
+          margin-top: clamp(-18px, -2.2vw, -32px);
           z-index: 2;
         }
 
         .blob-3 {
-          height: clamp(90px, 11vw, 190px);
+          height: clamp(86px, 10.5vw, 190px);
           border-radius: 50%;
           background: #F581A4;
           transform: rotate(5.835deg);
-          margin-top: clamp(-20px, -2.5vw, -36px);
+          margin-top: clamp(-18px, -2.2vw, -32px);
           z-index: 1;
+        }
+
+        /* ── TABLET ── */
+        @media (min-width: 701px) and (max-width: 1024px) {
+          .contact-value { font-size: clamp(13px, 1.8vw, 22px); }
+          .contact-label { font-size: clamp(18px, 2.5vw, 32px); }
         }
 
         /* ── MOBILE ── */
         @media (max-width: 700px) {
-          .contact-inner {
+          .contact-body {
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
+          }
+
+          .contact-left {
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            gap: clamp(16px, 5vw, 28px);
           }
 
           .contact-right {
             width: 100%;
             align-items: center;
+            padding-right: 0;
+          }
+
+          .blob-stack {
+            width: clamp(220px, 80vw, 360px);
           }
 
           .contact-blob {
-            width: clamp(240px, 80vw, 360px);
-            font-size: clamp(14px, 4vw, 20px);
+            font-size: clamp(13px, 4vw, 18px);
           }
 
           .blob-1, .blob-2, .blob-3 {
-            height: clamp(70px, 18vw, 120px);
+            height: clamp(68px, 17vw, 110px);
           }
 
-          .contact-script {
-            font-size: clamp(24px, 7vw, 40px);
+          .contact-heading-script {
+            font-size: clamp(24px, 7.5vw, 42px);
+            margin-bottom: clamp(-14px, -4vw, -20px);
           }
 
-          .contact-bold {
-            font-size: clamp(44px, 13vw, 80px);
-            line-height: 1;
+          .contact-heading-bold {
+            font-size: clamp(52px, 16vw, 90px);
           }
 
-          .contact-label {
-            font-size: clamp(20px, 5.5vw, 32px);
-          }
-
-          .contact-value {
-            font-size: clamp(14px, 4vw, 22px);
-          }
+          .contact-label { font-size: clamp(20px, 6vw, 32px); }
+          .contact-value { font-size: clamp(13px, 4vw, 20px); }
         }
       `}</style>
 
-      {/* Heading outside card */}
-      <div className="contact-heading">
-        <span className="contact-script">Let's Work</span>
-        <span className="contact-bold">TOGETHER</span>
-      </div>
-
-      {/* Main card */}
+      {/* ── Card wraps everything including the heading ── */}
       <div className="contact-card">
-        <div className="contact-inner">
 
-          {/* LEFT — contact info */}
-          <div className="contact-left">
-            <div className="contact-info-item">
-              <span className="contact-label">Phone</span>
-              <a href="tel:+919579245383">
-                <span className="contact-value">+91 95792 45383</span>
-              </a>
+        {/* Hand-drawn SVG border overlay */}
+        <svg
+          className="contact-card-svg"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          preserveAspectRatio="none"
+          viewBox="0 0 1405 842"
+          fill="none"
+        >
+          <path
+            d="M7.26982 57.1099C7.26982 29.4956 29.6556 7.10986 57.2698 7.10986H1347.27C1374.88 7.10986 1397.27 29.4956 1397.27 57.1099V784.11C1397.27 811.724 1374.88 834.11 1347.27 834.11H57.2698C29.6556 834.11 7.26982 811.724 7.26982 784.11V57.1099Z"
+            fill="none"
+            stroke="#6C081F"
+            strokeWidth="8"
+          />
+        </svg>
+
+        <div className="contact-card-inner">
+
+          {/* ── Heading inside the card ── */}
+          <div className="contact-heading">
+            <span className="contact-heading-script">Let's Work</span>
+            <span className="contact-heading-bold">TOGETHER</span>
+          </div>
+
+          {/* ── Body row ── */}
+          <div className="contact-body">
+
+            {/* LEFT — contact info */}
+            <div className="contact-left">
+              <div className="contact-info-item">
+                <span className="contact-label">Phone</span>
+                <a href="tel:+919579245383">
+                  <span className="contact-value">+91 95792 45383</span>
+                </a>
+              </div>
+
+              <div className="contact-info-item">
+                <span className="contact-label">Email</span>
+                <a href="mailto:sherinpaul2001@gmail.com">
+                  <span className="contact-value">sherinpaul2001@gmail.com</span>
+                </a>
+              </div>
+
+              <div className="contact-info-item">
+                <span className="contact-label">LinkedIn</span>
+                <a
+                  href="https://www.linkedin.com/in/sherinann/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="contact-value">linkedin.com/in/sherinann</span>
+                </a>
+              </div>
             </div>
 
-            <div className="contact-info-item">
-              <span className="contact-label">Email</span>
-              <a href="mailto:sherinpaul2001@gmail.com">
-                <span className="contact-value">sherinpaul2001@gmail.com</span>
-              </a>
-            </div>
-
-            <div className="contact-info-item">
-              <span className="contact-label">LinkedIn</span>
-              <a
-                href="https://www.linkedin.com/in/sherinann/"
-                target="_blank"
-                rel="noopener noreferrer"
+            {/* RIGHT — overlapping blobs pushed to the right */}
+            <div className="contact-right">
+              <svg
+                className="contact-star"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 100 100"
+                fill="none"
               >
-                <span className="contact-value">linkedin.com/in/sherinann</span>
-              </a>
-            </div>
-          </div>
+                <path
+                  d="M50 0L62.3744 37.6256L100 50L62.3744 62.3744L50 100L37.6256 62.3744L0 50L37.6256 37.6256L50 0Z"
+                  fill="#6C0820"
+                />
+              </svg>
 
-          {/* RIGHT — overlapping blobs with star */}
-          <div className="contact-right">
-            {/* Star overlapping first blob */}
-            <svg
-              className="contact-star"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 100 100"
-              fill="none"
-            >
-              <path
-                d="M50 0L62.3744 37.6256L100 50L62.3744 62.3744L50 100L37.6256 62.3744L0 50L37.6256 37.6256L50 0Z"
-                fill="#6C0820"
-              />
-            </svg>
-
-            <div className="blob-stack">
-              <div className="contact-blob blob-1">
-                Have a project in mind?
-              </div>
-              <div className="contact-blob blob-2">
-                Reach out and let's make it happen.
-              </div>
-              <div className="contact-blob blob-3">
-                Thank You
+              <div className="blob-stack">
+                <div className="contact-blob blob-1">Have a project in mind?</div>
+                <div className="contact-blob blob-2">Reach out and let's make it happen.</div>
+                <div className="contact-blob blob-3">Thank You</div>
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
     </section>
