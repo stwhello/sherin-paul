@@ -3,6 +3,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
+import contactBg from "../../assets/contact-bg.png";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
@@ -49,29 +51,28 @@ const Contact = () => {
       ref={container}
       className="container-page"
       style={{
-        paddingTop: "clamp(40px, 6vw, 120px)",
-        paddingBottom: "clamp(40px, 6vw, 120px)",
+        paddingTop: "clamp(32px, 4vw, 80px)",
+        paddingBottom: "clamp(32px, 4vw, 80px)",
       }}
     >
       <style>{`
-        /* ── Card — SVG as background border ── */
         .contact-card {
           position: relative;
-          background: #FDD0DA;
-          border-radius: clamp(18px, 2.5vw, 50px);
-          padding: clamp(28px, 4vw, 72px) clamp(28px, 5vw, 90px);
-          overflow: hidden;
-          /* draw the hand-drawn border via box-shadow + clip */
+          padding: clamp(24px, 3.5vw, 60px) clamp(28px, 5vw, 90px);
+          max-height: 100vh;
         }
 
-        /* SVG border overlay — sits on top of bg, behind content */
-        .contact-card-svg {
+        /* background image fills card */
+        .contact-card-bg {
           position: absolute;
           inset: 0;
           width: 100%;
           height: 100%;
-          pointer-events: none;
+          object-fit: contain;
+          object-position: center;
           z-index: 0;
+          pointer-events: none;
+          border-radius: inherit;
         }
 
         .contact-card-inner {
@@ -79,43 +80,40 @@ const Contact = () => {
           z-index: 1;
           display: flex;
           flex-direction: column;
-          gap: clamp(24px, 3vw, 52px);
+          gap: clamp(18px, 2.5vw, 40px);
         }
 
-        /* ── Heading INSIDE card ── */
+        /* ── Heading INSIDE card — overlapping ── */
         .contact-heading {
           text-align: center;
           position: relative;
           line-height: 1;
-          /* let TOGETHER overlap Let's Work */
-          padding-bottom: clamp(6px, 0.8vw, 14px);
         }
 
         .contact-heading-script {
           font-family: "Parisienne", cursive;
           color: #6C081F;
-          font-size: clamp(26px, 3.5vw, 64px);
+          font-size: clamp(30px, 4vw, 68px);
           font-weight: 400;
           display: block;
-          line-height: 1.1;
+          line-height: 1.15;
           position: relative;
           z-index: 2;
-          /* push slightly down so TOGETHER overlaps it */
-          margin-bottom: clamp(-10px, -1.2vw, -20px);
+          margin-bottom: clamp(-14px, -1.6vw, -26px);
         }
 
         .contact-heading-bold {
           font-family: "Bebas Neue", sans-serif;
           color: #6C081F;
-          font-size: clamp(48px, 8vw, 128px);
+          font-size: clamp(56px, 9vw, 140px);
           font-weight: 400;
           display: block;
-          line-height: 0.9;
+          line-height: 0.88;
           position: relative;
           z-index: 1;
         }
 
-        /* ── Main row: left + right ── */
+        /* ── Body row ── */
         .contact-body {
           display: flex;
           flex-direction: row;
@@ -128,7 +126,7 @@ const Contact = () => {
         .contact-left {
           display: flex;
           flex-direction: column;
-          gap: clamp(18px, 2.5vw, 44px);
+          gap: clamp(16px, 2.2vw, 40px);
           flex-shrink: 0;
         }
 
@@ -139,7 +137,7 @@ const Contact = () => {
         .contact-label {
           font-family: "Parisienne", cursive;
           color: #6C081F;
-          font-size: clamp(20px, 2.5vw, 48px);
+          font-size: clamp(24px, 3vw, 52px);
           font-weight: 400;
           line-height: 1.2;
           display: block;
@@ -148,7 +146,7 @@ const Contact = () => {
         .contact-value {
           font-family: "Bebas Neue", sans-serif;
           color: #1E1E1E;
-          font-size: clamp(14px, 1.8vw, 36px);
+          font-size: clamp(17px, 2.2vw, 40px);
           font-weight: 400;
           line-height: 1.25;
           display: block;
@@ -159,7 +157,7 @@ const Contact = () => {
           color: #6C081F;
         }
 
-        /* ── Right blobs — pushed right ── */
+        /* ── Right — blobs pushed right ── */
         .contact-right {
           position: relative;
           display: flex;
@@ -170,12 +168,14 @@ const Contact = () => {
           padding-right: clamp(0px, 2vw, 40px);
         }
 
+        /* star sits top-left of the yellow blob */
         .contact-star {
           position: absolute;
-          top: clamp(-20px, -2.5vw, -44px);
-          left: clamp(-10px, -1vw, -16px);
-          width: clamp(40px, 5.5vw, 100px);
-          height: clamp(40px, 5.5vw, 100px);
+          /* aligned to top-left corner of blob-stack */
+          top: clamp(-22px, -2.8vw, -50px);
+          left: clamp(-12px, -1.2vw, -20px);
+          width: clamp(42px, 5.8vw, 100px);
+          height: clamp(42px, 5.8vw, 100px);
           z-index: 10;
         }
 
@@ -193,17 +193,17 @@ const Contact = () => {
           justify-content: center;
           text-align: center;
           font-family: "Lato", sans-serif;
-          font-size: clamp(13px, 1.5vw, 28px);
+          font-size: clamp(14px, 1.7vw, 30px);
           font-weight: 700;
           color: #1E1E1E;
           line-height: 1.35;
           width: 100%;
-          padding: clamp(22px, 2.8vw, 52px) clamp(18px, 2vw, 36px);
+          padding: clamp(20px, 2.6vw, 48px) clamp(16px, 1.8vw, 32px);
           position: relative;
         }
 
         .blob-1 {
-          height: clamp(76px, 9.5vw, 170px);
+          height: clamp(72px, 9vw, 160px);
           border-radius: 50%;
           background: #FEDE6F;
           transform: rotate(5.835deg);
@@ -211,31 +211,35 @@ const Contact = () => {
         }
 
         .blob-2 {
-          height: clamp(76px, 9.5vw, 174px);
+          height: clamp(72px, 9vw, 164px);
           border-radius: clamp(10px, 1vw, 18px);
           background: #C5B2E9;
           transform: rotate(-3.095deg);
-          margin-top: clamp(-18px, -2.2vw, -32px);
+          margin-top: clamp(-16px, -2vw, -30px);
           z-index: 2;
         }
 
         .blob-3 {
-          height: clamp(86px, 10.5vw, 190px);
+          height: clamp(80px, 10vw, 180px);
           border-radius: 50%;
           background: #F581A4;
           transform: rotate(5.835deg);
-          margin-top: clamp(-18px, -2.2vw, -32px);
+          margin-top: clamp(-16px, -2vw, -30px);
           z-index: 1;
         }
 
         /* ── TABLET ── */
         @media (min-width: 701px) and (max-width: 1024px) {
-          .contact-value { font-size: clamp(13px, 1.8vw, 22px); }
-          .contact-label { font-size: clamp(18px, 2.5vw, 32px); }
+          .contact-value  { font-size: clamp(14px, 2vw, 24px); }
+          .contact-label  { font-size: clamp(20px, 2.8vw, 36px); }
+          .contact-heading-script { font-size: clamp(28px, 4vw, 52px); }
+          .contact-heading-bold   { font-size: clamp(52px, 9vw, 100px); }
         }
 
         /* ── MOBILE ── */
         @media (max-width: 700px) {
+          .contact-card { max-height: none; }
+
           .contact-body {
             flex-direction: column;
             align-items: center;
@@ -245,7 +249,7 @@ const Contact = () => {
             width: 100%;
             align-items: center;
             text-align: center;
-            gap: clamp(16px, 5vw, 28px);
+            gap: clamp(14px, 5vw, 26px);
           }
 
           .contact-right {
@@ -258,60 +262,46 @@ const Contact = () => {
             width: clamp(220px, 80vw, 360px);
           }
 
-          .contact-blob {
-            font-size: clamp(13px, 4vw, 18px);
-          }
+          .contact-blob { font-size: clamp(13px, 4vw, 18px); }
 
           .blob-1, .blob-2, .blob-3 {
-            height: clamp(68px, 17vw, 110px);
+            height: clamp(66px, 17vw, 108px);
           }
 
           .contact-heading-script {
-            font-size: clamp(24px, 7.5vw, 42px);
-            margin-bottom: clamp(-14px, -4vw, -20px);
+            font-size: clamp(26px, 8vw, 44px);
+            margin-bottom: clamp(-16px, -4.5vw, -22px);
           }
 
-          .contact-heading-bold {
-            font-size: clamp(52px, 16vw, 90px);
-          }
+          .contact-heading-bold { font-size: clamp(56px, 17vw, 96px); }
 
-          .contact-label { font-size: clamp(20px, 6vw, 32px); }
-          .contact-value { font-size: clamp(13px, 4vw, 20px); }
+          .contact-label { font-size: clamp(22px, 6.5vw, 34px); }
+          .contact-value { font-size: clamp(14px, 4.5vw, 22px); }
         }
       `}</style>
 
-      {/* ── Card wraps everything including the heading ── */}
       <div className="contact-card">
 
-        {/* Hand-drawn SVG border overlay */}
-        <svg
-          className="contact-card-svg"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          preserveAspectRatio="none"
-          viewBox="0 0 1405 842"
-          fill="none"
-        >
-          <path
-            d="M7.26982 57.1099C7.26982 29.4956 29.6556 7.10986 57.2698 7.10986H1347.27C1374.88 7.10986 1397.27 29.4956 1397.27 57.1099V784.11C1397.27 811.724 1374.88 834.11 1347.27 834.11H57.2698C29.6556 834.11 7.26982 811.724 7.26982 784.11V57.1099Z"
-            fill="none"
-            stroke="#6C081F"
-            strokeWidth="8"
-          />
-        </svg>
+        {/* Background image replaces the pink + SVG border */}
+        <img
+          className="contact-card-bg"
+          src={contactBg}
+          alt=""
+          aria-hidden="true"
+        />
 
         <div className="contact-card-inner">
 
-          {/* ── Heading inside the card ── */}
+          {/* Heading */}
           <div className="contact-heading">
             <span className="contact-heading-script">Let's Work</span>
             <span className="contact-heading-bold">TOGETHER</span>
           </div>
 
-          {/* ── Body row ── */}
+          {/* Body */}
           <div className="contact-body">
 
-            {/* LEFT — contact info */}
+            {/* LEFT */}
             <div className="contact-left">
               <div className="contact-info-item">
                 <span className="contact-label">Phone</span>
@@ -339,21 +329,22 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* RIGHT — overlapping blobs pushed to the right */}
+            {/* RIGHT */}
             <div className="contact-right">
-              <svg
-                className="contact-star"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 100 100"
-                fill="none"
-              >
-                <path
-                  d="M50 0L62.3744 37.6256L100 50L62.3744 62.3744L50 100L37.6256 62.3744L0 50L37.6256 37.6256L50 0Z"
-                  fill="#6C0820"
-                />
-              </svg>
-
               <div className="blob-stack">
+                {/* Star anchored to top-left of blob-stack */}
+                <svg
+                  className="contact-star"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  fill="none"
+                >
+                  <path
+                    d="M50 0L62.3744 37.6256L100 50L62.3744 62.3744L50 100L37.6256 62.3744L0 50L37.6256 37.6256L50 0Z"
+                    fill="#6C0820"
+                  />
+                </svg>
+
                 <div className="contact-blob blob-1">Have a project in mind?</div>
                 <div className="contact-blob blob-2">Reach out and let's make it happen.</div>
                 <div className="contact-blob blob-3">Thank You</div>
