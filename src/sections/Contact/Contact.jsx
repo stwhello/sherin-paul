@@ -58,8 +58,10 @@ const Contact = () => {
       <style>{`
         .contact-card {
           position: relative;
-          padding: clamp(24px, 3.5vw, 60px) clamp(28px, 5vw, 90px);
-          max-height: 100vh;
+          padding: clamp(24px, 5vw, 90px) clamp(28px, 15vw, 190px);
+          overflow: hidden;
+          max-height: 90vh;
+          box-sizing: border-box;
         }
 
         /* background image fills card */
@@ -80,7 +82,7 @@ const Contact = () => {
           z-index: 1;
           display: flex;
           flex-direction: column;
-          gap: clamp(18px, 2.5vw, 40px);
+          gap: clamp(16px, 2vw, 32px);
         }
 
         /* ── Heading INSIDE card — overlapping ── */
@@ -93,7 +95,7 @@ const Contact = () => {
         .contact-heading-script {
           font-family: "Parisienne", cursive;
           color: #6C081F;
-          font-size: clamp(30px, 4vw, 68px);
+          font-size: clamp(28px, 3vw, 52px);
           font-weight: 400;
           display: block;
           line-height: 1.15;
@@ -105,7 +107,7 @@ const Contact = () => {
         .contact-heading-bold {
           font-family: "Bebas Neue", sans-serif;
           color: #6C081F;
-          font-size: clamp(56px, 9vw, 140px);
+          font-size: clamp(52px, 7vw, 110px);
           font-weight: 400;
           display: block;
           line-height: 0.88;
@@ -119,7 +121,7 @@ const Contact = () => {
           flex-direction: row;
           align-items: center;
           justify-content: space-between;
-          gap: clamp(24px, 4vw, 60px);
+          gap: clamp(14px, 2vw, 30px);
         }
 
         /* ── Left ── */
@@ -137,7 +139,7 @@ const Contact = () => {
         .contact-label {
           font-family: "Parisienne", cursive;
           color: #6C081F;
-          font-size: clamp(24px, 3vw, 52px);
+          font-size: clamp(22px, 2.4vw, 40px);
           font-weight: 400;
           line-height: 1.2;
           display: block;
@@ -146,7 +148,7 @@ const Contact = () => {
         .contact-value {
           font-family: "Bebas Neue", sans-serif;
           color: #1E1E1E;
-          font-size: clamp(17px, 2.2vw, 40px);
+          font-size: clamp(15px, 1.8vw, 30px);
           font-weight: 400;
           line-height: 1.25;
           display: block;
@@ -174,8 +176,8 @@ const Contact = () => {
           /* aligned to top-left corner of blob-stack */
           top: clamp(-22px, -2.8vw, -50px);
           left: clamp(-12px, -1.2vw, -20px);
-          width: clamp(42px, 5.8vw, 100px);
-          height: clamp(42px, 5.8vw, 100px);
+          width: clamp(42px, 5vw, 100px);
+          height: clamp(42px, 5vw, 100px);
           z-index: 10;
         }
 
@@ -183,7 +185,7 @@ const Contact = () => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          width: clamp(200px, 28vw, 440px);
+          width: clamp(190px, 22vw, 380px);
           position: relative;
         }
 
@@ -193,7 +195,7 @@ const Contact = () => {
           justify-content: center;
           text-align: center;
           font-family: "Lato", sans-serif;
-          font-size: clamp(14px, 1.7vw, 30px);
+          font-size: clamp(13px, 1.3vw, 22px);
           font-weight: 700;
           color: #1E1E1E;
           line-height: 1.35;
@@ -203,7 +205,7 @@ const Contact = () => {
         }
 
         .blob-1 {
-          height: clamp(72px, 9vw, 160px);
+          height: clamp(66px, 7.5vw, 130px);
           border-radius: 50%;
           background: #FEDE6F;
           transform: rotate(5.835deg);
@@ -211,7 +213,7 @@ const Contact = () => {
         }
 
         .blob-2 {
-          height: clamp(72px, 9vw, 164px);
+          height: clamp(66px, 7.5vw, 134px);
           border-radius: clamp(10px, 1vw, 18px);
           background: #C5B2E9;
           transform: rotate(-3.095deg);
@@ -220,7 +222,7 @@ const Contact = () => {
         }
 
         .blob-3 {
-          height: clamp(80px, 10vw, 180px);
+          height: clamp(74px, 8.5vw, 148px);
           border-radius: 50%;
           background: #F581A4;
           transform: rotate(5.835deg);
