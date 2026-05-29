@@ -5,6 +5,7 @@ import ClientWork from "../sections/ClientWork/ClientWork";
 import WhatIBuild from "../sections/WhatIBuild/WhatIBuild";
 import Contact from "../sections/Contact/Contact";
 import WhatIDo from "../sections/WhatIDo/WhatIDo";
+import Footer from "../components/Footer";
 
 const MainLayout = () => {
   return (
@@ -36,6 +37,8 @@ const MainLayout = () => {
       <section id="contact">
         <Contact />
       </section>
+
+      <Footer />
     </>
   );
 };
