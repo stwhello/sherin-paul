@@ -58,7 +58,7 @@ const Contact = () => {
       <style>{`
         .contact-card {
           position: relative;
-          padding: clamp(24px, 5vw, 90px) clamp(28px, 15vw, 190px);
+          padding: clamp(24px, 5vw, 90px) clamp(28px, 15vw, 280px);
           overflow: hidden;
           max-height: 90vh;
           box-sizing: border-box;
