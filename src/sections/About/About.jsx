@@ -40,13 +40,15 @@ const About = () => {
   });
 
   return (
-    <section ref={container} className='container-page mt-60'>
-   
+    <section
+      ref={container}
+      className='container-page mt-60 lg:mt-60'
+      style={{ marginTop: window.innerWidth < 1024 ? "60px" : undefined }}
+    >
       <div
         className='hidden lg:flex relative bg-[#F2AEBD] rounded-t-[50px] items-center overflow-visible pb-8'
         style={{ minHeight: "clamp(340px, 30vw, 540px)" }}
       >
-       
         <div
           className='absolute left-0 bottom-0'
           style={{ width: "clamp(260px, 30vw, 520px)" }}
@@ -54,7 +56,6 @@ const About = () => {
           <img src={aboutImg} alt='Sherin' className='about-image w-full' />
         </div>
 
-       
         <div
           className='about-tag absolute bg-[#F2AEBD] text-[#6C0820] rounded-full whitespace-nowrap'
           style={{
@@ -104,7 +105,6 @@ const About = () => {
           Full Stack Developer
         </div>
 
-      
         <img
           src={arrow}
           className='about-arrow absolute'
@@ -115,7 +115,6 @@ const About = () => {
           }}
         />
 
-      
         <div
           className='w-full'
           style={{
@@ -159,28 +158,25 @@ const About = () => {
         className='lg:hidden relative bg-[#F2AEBD] rounded-t-[40px] mt-16'
         style={{ overflow: "hidden" }}
       >
-  
         <div className='relative w-full'>
           <img
             src={aboutImg}
             alt='Sherin'
             className='about-image relative z-10 block'
             style={{
-              width: "85vw",
-              maxWidth: "360px",
-              marginTop: "-20vw",
+              width: "72vw",
+              maxWidth: "280px",
+              marginTop: "-12vw",
               marginLeft: "0",
             }}
           />
 
-         
           <img
             src={arrow}
             className='about-arrow absolute z-20'
-            style={{ right: "4%", top: "8%", width: "16vw", maxWidth: "65px" }}
+            style={{ right: "8%", top: "32%", width: "16vw", maxWidth: "65px" }}
           />
 
-   
           <div
             className='about-tag absolute z-20 bg-[#6C0820] text-white rounded-full whitespace-nowrap font-medium'
             style={{
@@ -193,7 +189,6 @@ const About = () => {
             Full Stack Developer
           </div>
 
-      
           <div
             className='about-tag absolute z-20 bg-[#F2DDDC] text-[#6C0820] rounded-full whitespace-nowrap font-medium'
             style={{
@@ -206,7 +201,6 @@ const About = () => {
             Wordpress Developer
           </div>
 
-     
           <div
             className='about-tag absolute z-20 bg-[#F2DDDC] text-[#6C0820] rounded-full whitespace-nowrap font-medium'
             style={{
@@ -232,17 +226,16 @@ const About = () => {
           </div>
         </div>
 
-     
-        <div className='w-full px-5 pb-12 pt-6 text-center'>
+        <div className="w-full px-5 pb-8 pt-2 text-center">
           <h2
             className='about-heading heading-font text-[#6C081F]'
-            style={{ fontSize: "clamp(38px, 10vw, 56px)" }}
+            style={{ fontSize: "clamp(32px, 8vw, 48px)" }}
           >
             ABOUT ME
           </h2>
           <p
             className='about-text body-font text-[#6C081F] mt-4 w-full'
-            style={{ fontSize: "clamp(14px, 4vw, 16px)", lineHeight: "1.8" }}
+            style={{ fontSize: "clamp(14px, 4vw, 16px)", lineHeight: "1.65" }}
           >
             I'm a <strong>Full Stack Developer</strong> based in Pune with a
             <strong> Master's degree in Computer Science</strong>. I build
