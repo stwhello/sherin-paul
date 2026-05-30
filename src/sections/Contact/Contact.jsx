@@ -10,6 +10,13 @@ gsap.registerPlugin(ScrollTrigger);
 const Contact = () => {
   const container = useRef();
 
+  const handleEmailClick = () => {
+  const gmailLink =
+    "https://mail.google.com/mail/?view=cm&to=sherinpaul2001@gmail.com";
+
+  window.open(gmailLink, "_blank", "noopener,noreferrer");
+};
+
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -27,29 +34,41 @@ const Contact = () => {
       .from(
         ".contact-heading-bold",
         { y: 20, opacity: 0, duration: 0.6, ease: "power3.out" },
-        "-=0.3"
+        "-=0.3",
       )
       .from(
         ".contact-left",
         { x: -60, opacity: 0, duration: 0.7, ease: "power3.out" },
-        "-=0.3"
+        "-=0.3",
       )
       .from(
         ".contact-blob",
-        { scale: 0.7, opacity: 0, duration: 0.6, stagger: 0.15, ease: "back.out(1.7)" },
-        "-=0.4"
+        {
+          scale: 0.7,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "back.out(1.7)",
+        },
+        "-=0.4",
       )
       .from(
         ".contact-star",
-        { scale: 0, opacity: 0, rotation: -90, duration: 0.5, ease: "back.out(2)" },
-        "-=0.6"
+        {
+          scale: 0,
+          opacity: 0,
+          rotation: -90,
+          duration: 0.5,
+          ease: "back.out(2)",
+        },
+        "-=0.6",
       );
   });
 
   return (
     <section
       ref={container}
-      className="container-page"
+      className='container-page'
       style={{
         paddingTop: "clamp(32px, 4vw, 80px)",
         paddingBottom: "clamp(32px, 4vw, 80px)",
@@ -242,6 +261,10 @@ const Contact = () => {
         @media (max-width: 700px) {
           .contact-card { max-height: none; }
 
+            .contact-card-bg {
+    object-fit: cover;
+  }
+
           .contact-body {
             flex-direction: column;
             align-items: center;
@@ -282,77 +305,83 @@ const Contact = () => {
         }
       `}</style>
 
-      <div className="contact-card">
-
+      <div className='contact-card'>
         {/* Background image replaces the pink + SVG border */}
         <img
-          className="contact-card-bg"
+          className='contact-card-bg'
           src={contactBg}
-          alt=""
-          aria-hidden="true"
+          alt=''
+          aria-hidden='true'
         />
 
-        <div className="contact-card-inner">
-
+        <div className='contact-card-inner'>
           {/* Heading */}
-          <div className="contact-heading">
-            <span className="contact-heading-script">Let's Work</span>
-            <span className="contact-heading-bold">TOGETHER</span>
+          <div className='contact-heading'>
+            <span className='contact-heading-script'>Let's Work</span>
+            <span className='contact-heading-bold'>TOGETHER</span>
           </div>
 
           {/* Body */}
-          <div className="contact-body">
-
+          <div className='contact-body'>
             {/* LEFT */}
-            <div className="contact-left">
-              <div className="contact-info-item">
-                <span className="contact-label">Phone</span>
-                <a href="tel:+919579245383">
-                  <span className="contact-value">+91 95792 45383</span>
+            <div className='contact-left'>
+              <div className='contact-info-item'>
+                <span className='contact-label'>Phone</span>
+                <a href='tel:+919579245383'>
+                  <span className='contact-value'>+91 95792 45383</span>
                 </a>
               </div>
 
-              <div className="contact-info-item">
-                <span className="contact-label">Email</span>
-                <a href="mailto:sherinpaul2001@gmail.com">
-                  <span className="contact-value">sherinpaul2001@gmail.com</span>
-                </a>
-              </div>
+              <div className='contact-info-item'>
+                <span className='contact-label'>Email</span>
 
-              <div className="contact-info-item">
-                <span className="contact-label">LinkedIn</span>
-                <a
-                  href="https://www.linkedin.com/in/sherinann/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <span
+                  className='contact-value'
+                  onClick={handleEmailClick}
+                  style={{ cursor: "pointer" }}
                 >
-                  <span className="contact-value">linkedin.com/in/sherinann</span>
+                  sherinpaul2001@gmail.com
+                </span>
+              </div>
+              <div className='contact-info-item'>
+                <span className='contact-label'>LinkedIn</span>
+                <a
+                  href='https://www.linkedin.com/in/sherinann/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <span className='contact-value'>
+                    linkedin.com/in/sherinann
+                  </span>
                 </a>
               </div>
             </div>
 
             {/* RIGHT */}
-            <div className="contact-right">
-              <div className="blob-stack">
+            <div className='contact-right'>
+              <div className='blob-stack'>
                 {/* Star anchored to top-left of blob-stack */}
                 <svg
-                  className="contact-star"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 100 100"
-                  fill="none"
+                  className='contact-star'
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 100 100'
+                  fill='none'
                 >
                   <path
-                    d="M50 0L62.3744 37.6256L100 50L62.3744 62.3744L50 100L37.6256 62.3744L0 50L37.6256 37.6256L50 0Z"
-                    fill="#6C0820"
+                    d='M50 0L62.3744 37.6256L100 50L62.3744 62.3744L50 100L37.6256 62.3744L0 50L37.6256 37.6256L50 0Z'
+                    fill='#6C0820'
                   />
                 </svg>
 
-                <div className="contact-blob blob-1">Have a project in mind?</div>
-                <div className="contact-blob blob-2">Reach out and let's make it happen.</div>
-                <div className="contact-blob blob-3">Thank You</div>
+                <div className='contact-blob blob-1'>
+                  Have a project in mind?
+                </div>
+                <div className='contact-blob blob-2'>
+                  Reach out and let's make it happen.
+                </div>
+                <div className='contact-blob blob-3'>Thank You</div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
