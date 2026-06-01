@@ -8,13 +8,20 @@ import arena from "../../assets/arena.webp";
 import kyomi from "../../assets/kyomi.webp";
 import anubhuti from "../../assets/anubhuti.webp";
 import palki from "../../assets/palki.webp";
-import paperfold from "../../assets/kyomi.webp";
+import paperfold from "../../assets/paperfold.png";
+import modern from "../../assets/modern.png";
 import nano from "../../assets/wand.webp";
 import mels from "../../assets/mdln.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
+  {
+    title: "Modern Dairy",
+    desc: "Full-stack corporate website for a leading dairy brand, featuring dynamic product management, responsive user interfaces, optimized performance, and scalable backend architecture to support product discovery, brand storytelling, and customer engagement.",
+    image: modern,
+    link: "https://www.moderndairy.in/",
+  },
   {
     title: "MAAC India",
     desc: "National platform for a leading animation & VFX institute, built for scale with optimized performance and responsive UI across all devices.",
