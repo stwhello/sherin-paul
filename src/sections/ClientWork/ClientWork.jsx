@@ -18,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     title: "Modern Dairy",
-    desc: "Full-stack corporate website for a leading dairy brand, featuring dynamic product management, responsive user interfaces, optimized performance, and scalable backend architecture to support product discovery, brand storytelling, and customer engagement.",
+    desc: "Corporate dairy brand website with dynamic product management, responsive design, and a scalable full-stack architecture.",
     image: modern,
     link: "https://www.moderndairy.in/",
   },
