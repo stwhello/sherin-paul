@@ -11,11 +11,11 @@ const Contact = () => {
   const container = useRef();
 
   const handleEmailClick = () => {
-  const gmailLink =
-    "https://mail.google.com/mail/?view=cm&to=sherinpaul2001@gmail.com";
+    const gmailLink =
+      "https://mail.google.com/mail/?view=cm&to=sherinpaul2001@gmail.com";
 
-  window.open(gmailLink, "_blank", "noopener,noreferrer");
-};
+    window.open(gmailLink, "_blank", "noopener,noreferrer");
+  };
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -326,10 +326,10 @@ const Contact = () => {
             {/* LEFT */}
             <div className='contact-left'>
               <div className='contact-info-item'>
-                <span className='contact-label'>Phone</span>
-                <a href='tel:+919579245383'>
-                  <span className='contact-value'>+91 95792 45383</span>
-                </a>
+                <span className='contact-label'>Let's Chat</span>
+                <span className='contact-value'>
+                  Coffee, Code & Creative Ideas
+                </span>
               </div>
 
               <div className='contact-info-item'>
