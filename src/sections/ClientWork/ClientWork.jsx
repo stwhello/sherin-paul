@@ -131,21 +131,46 @@ const ClientWork = () => {
           flex-direction: column;
         }
         .cw-img-wrap {
-          overflow: hidden;
-          width: 100%;
-          border-radius: 6px 6px 0 0;
-        }
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 6px 6px 0 0;
+}
         .cw-img-wrap img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
-          transition: transform 0.5s ease;
+          transition: transform .65s cubic-bezier(.22,.61,.36,1);
           pointer-events: none;
           user-select: none;
         }
+          .cw-glare {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+        115deg,
+        transparent 25%,
+        rgba(255,255,255,.28) 45%,
+        rgba(255,255,255,.55) 50%,
+        rgba(255,255,255,.28) 55%,
+        transparent 75%
+    );
+
+    transform: translateX(-180%) skewX(-25deg);
+
+    transition: transform .8s cubic-bezier(.22,.61,.36,1);
+
+    z-index: 2;
+}
+    .cw-card:hover .cw-glare{
+    transform: translateX(180%) skewX(-25deg);
+}
         .cw-card:hover .cw-img-wrap img {
-          transform: scale(1.06);
+          transform: scale(1.08);
         }
         .cw-btn {
           display: inline-block;
@@ -211,6 +236,8 @@ const ClientWork = () => {
                 }}
               >
                 <div className='cw-img-wrap' style={{ aspectRatio: "43 / 33" }}>
+                  <div className='cw-glare'></div>
+
                   <img
                     src={project.image}
                     alt={project.title}
