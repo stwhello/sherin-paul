@@ -12,6 +12,7 @@ import paperfold from "../../assets/paperfold.png";
 import modern from "../../assets/modern.png";
 import nano from "../../assets/wand.webp";
 import mels from "../../assets/mdln.webp";
+import Magnet from "../../components/Magnet/Magnet";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -281,14 +282,16 @@ const ClientWork = () => {
                   {project.desc}
                 </p>
                 <div style={{ paddingTop: "clamp(4px, 0.2vw, 4px)" }}>
-                  <a
-                    href={project.link}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='cw-btn body-font'
-                  >
-                    Live Website
-                  </a>
+                  <Magnet padding={120} magnetStrength={12}>
+                    <a
+                      href={project.link}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='cw-btn body-font'
+                    >
+                      Live Website
+                    </a>
+                  </Magnet>
                 </div>
               </div>
             </div>
